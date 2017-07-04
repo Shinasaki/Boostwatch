@@ -37,4 +37,6 @@ Route::get('/', 'IndexController@index')->name('index');
 //Boost
 Route::get('/boost', 'BoostController@index')->name('boost');
 Route::get('/boost/{page}', 'BoostController@boost');
-Route::post('/ajax/{service}', 'AjaxController@ajax');
+
+Route::post('/ajax/getRank', 'AjaxController@getRank');
+Route::post('/ajax/compileRank', 'AjaxController@compileRank');

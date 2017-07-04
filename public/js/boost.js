@@ -296,7 +296,7 @@ function getRank(elem,region) //.boost .solo
           }
         });
         $.ajax({
-            url: '/ajax/getrank',
+            url: '/ajax/getRank',
             data: data,
             type: 'POST',
             beforeSend: boostSend,
@@ -322,7 +322,6 @@ function rankSuccess(result)
             newRank = Math.round((newrank + 100) / 100) * 100
             $('.newRank').val(newRank);
         }
-
         getPrice();
     }
     else
@@ -335,7 +334,7 @@ function rankSuccess(result)
 function rankError(xhr, status, error)
 {
     var err = eval("(" + xhr.responseText + ")");
-    $('.boost-box').text(error);
+    alert(err);
 }
 function boostSend()
 {
