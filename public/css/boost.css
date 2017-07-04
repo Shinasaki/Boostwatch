@@ -1,0 +1,124 @@
+.boost
+{
+    text-align: center;
+    background: #f2f2f2;
+    padding:3%;
+    background-image: url('../image/boost/bg.png');
+}
+.boost-box
+{
+    width: auto;
+    min-height: 100px;
+    padding: 1%;
+}
+    .boost-menu
+    {
+        background: rgba(75, 83, 104, 0.8);
+    }
+    .boost-menu li
+    {
+        display: inline-block;
+        width: auto;
+        padding: 2% 4% 2% 4%;
+        transition: background 0.3s;
+    }
+        .boost-menu a:hover li, .boost-menu #active li
+        {
+            background: rgba(75, 83, 104, 1);
+        }
+
+
+    .boost-menu a
+    {
+        color: #f2f2f2;
+        font-size: 25px;
+        transition: color 0.3s;
+    }
+        .boost-menu a:hover, .boost-menu #active
+        {
+            color: #fff;
+        }
+            .boost-menu #active
+            {
+                text-shadow: 0 0 10px #fff;
+            }
+
+    .boost-content
+    {
+        margin-top: 1.5%;
+        min-height: 100px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1%;
+        overflow: hidden;
+    }
+
+    .boost-rank div
+    {
+        margin:1% 0 1% 0;
+        background: #694892;
+        padding: 3%;
+        width: 20%;
+        text-align: center;
+    }
+        .boost-rank div:nth-child(odd)
+        {
+            float: left;
+            margin-left: 15%;
+
+        }
+        .boost-rank div:nth-child(even)
+        {
+            float: right;
+            margin-right: 15%;
+        }
+            .boost-img1 img, .boost-img2 img
+            {
+                width: 50%;
+            }
+            .boost-rank span
+            {
+                font-size:30px;
+                color: #f2f2f2;
+            }
+            .boost-rank input[type=number], .boost-rank input[type=text]
+            {
+                height: 35px;
+                width: 60%;
+                padding: 3% 2% 2% 2%;
+                font-size: 30px;
+                border-radius: 5px;
+                border:1px solid #fff;
+                font-family: 'BrandVoic';
+            }
+            .boost-rank input[type=number]:focus, .boost-rank input[type=text]:focus, .boost-rank select:focus
+            {
+                outline: none;
+                border:1px solid orange;
+            }
+            .boost-rank select
+            {
+                height: 47px;
+                width: 60%;
+                padding: 3% 2% 2% 2%;
+                font-size: 30px;
+                border:1px solid #fff;
+                font-family: 'BrandVoic';
+            }
+                .boost-rank option
+                {
+                    font-family: 'BrandVoic';
+                }
+
+
+    @media only screen and (max-width: 768px) {
+        .boost, .boost-box, .boost-content{padding: 0 !important; margin: 0 !important;}
+        .boost-rank div
+        {
+            width: 42% !important;
+            margin: 2% 1% 2% 1% !important;
+        }
+        .boost-rank, .boost-content
+        {
+            background: none !important;
+        }
+    }
