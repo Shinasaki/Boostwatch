@@ -91,194 +91,8 @@ function getPriceTh(currentRank,newRank)
 {
     rankImg('.boost-img1', currentRank);
     rankImg('.boost-img2', newRank);
-    var priceBronze = 1;
-    var priceSilver = 1;
-    var priceGold = 1.3;
-    var pricePlatinum = 2;
-    var priceDiamond = 3;
-    var priceMaster = 5;
-    var priceGrand = 10;
+    compileRank(currentRank, newRank);
 
-    var currentRank = parseInt(currentRank) - 100;
-    var newRank = parseInt(newRank);
-    var price = newRank - currentRank;
-
-    //Bronze
-    if (currentRank <= 1499)
-    {
-        if (newRank <= 1499)
-        {
-            //to Bronze
-            price = price * priceBronze;
-        }
-        else if (newRank <= 1999)
-        {
-            //to Silver
-            price = price * priceSilver;
-        }
-        else if (newRank <= 2499)
-        {
-            //to Gold
-            price = price * priceGold;
-        }
-        else if (newRank <= 2999)
-        {
-            //to Platinum
-            price = price * pricePlatinum;
-        }
-        else if (newRank <= 3499)
-        {
-            //to Diamond
-            price = price * priceDiamond;
-        }
-        else if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Silver
-    else if (currentRank <= 1999)
-    {
-        if (newRank <= 1999)
-        {
-            //to Silver
-            price = price * priceSilver;
-        }
-        else if (newRank <= 2499)
-        {
-            //to Gold
-            price = price * priceGold;
-        }
-        else if (newRank <= 2999)
-        {
-            //to Platinum
-            price = price * pricePlatinum;
-        }
-        else if (newRank <= 3499)
-        {
-            //to Diamond
-            price = price * priceDiamond;
-        }
-        else if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Gold
-    else if (currentRank <= 2499)
-    {
-        if (newRank <= 2499)
-        {
-            //to Gold
-            price = price * priceGold;
-        }
-        else if (newRank <= 2999)
-        {
-            //to Platinum
-            price = price * pricePlatinum;
-        }
-        else if (newRank <= 3499)
-        {
-            //to Diamond
-            price = price * priceDiamond;
-        }
-        else if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Platinum
-    else if (currentRank <= 2999)
-    {
-        if (newRank <= 2999)
-        {
-            //to Platinum
-            price = price * pricePlatinum;
-        }
-        else if (newRank <= 3499)
-        {
-            //to Diamond
-            price = price * priceDiamond;
-        }
-        else if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Diamond
-    else if (currentRank <= 3499)
-    {
-        if (newRank <= 3499)
-        {
-            //to Diamond
-            price = price * priceDiamond;
-        }
-        else if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Master
-    else if (currentRank <= 3999)
-    {
-        if (newRank <= 3999)
-        {
-            //to Master
-            price = price * priceMaster;
-        }
-        else if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    //Grand
-    else if (currentRank >= 4000)
-    {
-        if (newRank >= 4000)
-        {
-            //to Grand
-            price = price * priceGrand;
-        }
-    }
-
-    $('.price').text(Math.round(price));
 }
 
 
@@ -301,47 +115,112 @@ function getRank(elem,region) //.boost .solo
             type: 'POST',
             beforeSend: boostSend,
             complete: boostComplete,
-            timeout: '10000',
+            timeout: '7000',
             success: rankSuccess,
             error: rankError,
         });
     }
 }
-
-function rankSuccess(result)
-{
-    result = result.replace(/\s+/g, '');
-    if(result.length > 1)
+    function rankSuccess(result)
     {
-        $('.currentRank').val(result);
-        $('.currentRank').prop( "disabled", true );
-
-        if($('.currentRank').val() >= $('.newRank').val())
+        result = result.replace(/\s+/g, '');
+        if(result.length > 1)
         {
-            newrank = parseInt($('#tag').val());
-            newRank = Math.round((newrank + 100) / 100) * 100
-            $('.newRank').val(newRank);
+            $('.currentRank').val(result);
+            $('.currentRank').prop( "disabled", true );
+
+            if($('.currentRank').val() >= $('.newRank').val())
+            {
+                newrank = parseInt($('#tag').val());
+                newRank = Math.round((newrank + 100) / 100) * 100
+                $('.newRank').val(newRank);
+            }
         }
+        else
+        {
+            $('.currentRank').val(0);
+            $('.currentRank').prop( "disabled", false );
+        }
+    }
+
+    function rankError(xhr, status, error)
+    {
+        var err = eval("(" + xhr.responseText + ")");
+        $('.tag').append(err);
+    }
+    function boostSend()
+    {
+        $('#tag-load i').css('display','inline-block');
+    }
+
+    function boostComplete()
+    {
+        $('#tag-load i').css('display','none');
         getPrice();
+    }
+
+/* Rank Compile */
+function compileRank(currentRank, newRank)
+{
+    if($.isNumeric(currentRank) && $.isNumeric(currentRank))
+    {
+        data = 'currentRank='+currentRank+"&newRank="+newRank
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+            url: '/ajax/compileRank',
+            data: data,
+            type: 'POST',
+            timeout: '7000',
+            success: compileSuccess,
+            error: compileError,
+        });
+    }
+}
+    function compileSuccess(result)
+    {
+        $('.price').text(result);
+    }
+
+    function compileError(xhr, status, error)
+    {
+        var err = eval("(" + xhr.responseText + ")");
+        $('.tag').append(err);
+    }
+
+/* Level Compile */
+function levelCompile(level)
+{
+    if($.isNumeric(level) && level <= 1000)
+    {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+            url: '/ajax/levelCompile',
+            data: "level="+level,
+            type: 'POST',
+            timeout: '7000',
+            success: levelSuccess,
+            error: levelError,
+        });
     }
     else
     {
-        $('.currentRank').val(0);
-        $('.currentRank').prop( "disabled", false );
+        $('.newLevel').val("20");
     }
 }
-
-function rankError(xhr, status, error)
-{
-    var err = eval("(" + xhr.responseText + ")");
-    alert(err);
-}
-function boostSend()
-{
-    $('#tag-load i').css('display','inline-block');
-}
-
-function boostComplete()
-{
-    $('#tag-load i').css('display','none');
-}
+    function levelSuccess(result)
+    {
+        $('.price').text(result);
+    }
+    function levelError(xhr, status, error)
+    {
+        var err = eval("(" + xhr.responseText + ")");
+        $('.tag').append(err);
+    }

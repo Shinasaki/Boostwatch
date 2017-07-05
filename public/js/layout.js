@@ -41,7 +41,7 @@ $(window).bind("load", function() {
 
 
     // Boost
-    $('.currentRank, .newRank').on("focusout mousleave", function(){
+    $('.currentRank, .newRank').on("change", function(e){
         getPrice();
     });
 
@@ -57,7 +57,7 @@ $(window).bind("load", function() {
             getRank('.tag','.server');
             getPrice();
         });
-        $('.tag').on('focusout', function(){
+        $('.tag').on('focusout change', function(){
             getRank('.tag','.server');
             getPrice();
             if($('.tag').val() == "")
@@ -65,6 +65,16 @@ $(window).bind("load", function() {
                 $('.currentRank').prop( "disabled", false );
             }
         });
+    // --/
+
+    // Level
+        $('.newLevel').on("change", function(){
+            if($(this) != "")
+            {
+                levelCompile($(this).val());
+            }
+        })
+
     // --/
 
 

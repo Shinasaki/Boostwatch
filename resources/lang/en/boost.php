@@ -12,6 +12,8 @@ return [
     'tag' => 'Tag',
     'pay' => 'Checkout',
 
+    'level' => 'New Level',
+
     'us' => 'Americas',
     'eu' => 'Europe',
     'kr' => 'Asia',
