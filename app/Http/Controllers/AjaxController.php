@@ -17,6 +17,7 @@ class AjaxController extends Controller
         curl_setopt($sh, CURLOPT_URL, $url);
         curl_setopt($sh, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($sh, CURLOPT_HEADER, false);
+        curl_setopt($sh, CURLOPT_SSL_VERIFYPEER, false);
 
         $result = curl_exec($sh);
         curl_close($sh);

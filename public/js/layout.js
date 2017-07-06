@@ -50,19 +50,25 @@ $(window).bind("load", function() {
             if(e.which === 13)
             {
                 getRank('.tag','.server');
-                getPrice();
             }
         });
-        $('.server').on('change focusout', function(){
+        $('.server').on('change', function(){
             getRank('.tag','.server');
-            getPrice();
+
         });
-        $('.tag').on('focusout change', function(){
-            getRank('.tag','.server');
-            getPrice();
-            if($('.tag').val() == "")
+        $('.tag').on('change keypress', function(e){
+            if(e.which == 13)
             {
-                $('.currentRank').prop( "disabled", false );
+                getRank('.tag','.server');
+            }
+            else
+            {
+                getRank('.tag','.server');
+                getPrice();
+                if($('.tag').val() == "")
+                {
+                    $('.currentRank').prop( "disabled", false );
+                }
             }
         });
     // --/

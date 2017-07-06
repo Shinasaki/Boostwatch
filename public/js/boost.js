@@ -141,6 +141,7 @@ function getRank(elem,region) //.boost .solo
             $('.currentRank').val(0);
             $('.currentRank').prop( "disabled", false );
         }
+        getPrice()
     }
 
     function rankError(xhr, status, error)
