@@ -4,7 +4,7 @@ function getPrice()
     var newRank = $('.newRank').val();
 
     // Fill Empty
-    if($('.currentRank').val() == "" || $('#tag').val() < 0)
+    /*if($('.currentRank').val() == "" || $('#tag').val() < 0)
     {
         $('.currentRank').val("2700");
 
@@ -12,7 +12,7 @@ function getPrice()
         {
             $('.currentRank').val("2800");
         }
-    }
+    }*/
 
 
     // Limit Range
@@ -195,8 +195,6 @@ function compileRank(currentRank, newRank)
 /* Level Compile */
 function levelCompile(level)
 {
-    if($.isNumeric(level) && level <= 1000)
-    {
         $.ajaxSetup({
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -210,11 +208,6 @@ function levelCompile(level)
             success: levelSuccess,
             error: levelError,
         });
-    }
-    else
-    {
-        $('.newLevel').val("20");
-    }
 }
     function levelSuccess(result)
     {

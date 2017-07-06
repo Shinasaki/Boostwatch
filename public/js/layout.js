@@ -41,45 +41,72 @@ $(window).bind("load", function() {
 
 
     // Boost
-    $('.currentRank, .newRank').on("change", function(e){
+
+    // Process Price
+    $('.currentRank, .newRank').on("keyup", function(){
         getPrice();
     });
+    $('.currentRank, .newRank').on("change", function(){
+        if($('.currentRank').val() == "")
+        {
+            $('.currentRank').val("1700")
+            getPrice();
+        }
+        if($('.newRank').val() == "")
+        {
+            $('.currentRank').val("3000")
+            getPrice();
+        }
 
-        // Get sr by tag
-        $('.tag').on('keypress', function(e){
-            if(e.which === 13)
-            {
-                getRank('.tag','.server');
-            }
-        });
-        $('.server').on('change', function(){
+    });
+
+    // Get sr by tag
+    $('.server').on('change', function(){
+        getRank('.tag','.server');
+    });
+    $('.tag').on('change', function(){
+        if ($('.tag').val() == "") {
+            $('.currentRank').prop( "disabled", false );
+            $('.currentRank').val("0");
+            getPrice()
+        }
+        getRank('.tag','.server');
+    });
+    $('.tag').on('keypress', function(){
+        if (e.which == 13)
+        {
             getRank('.tag','.server');
+        }
+    });
 
-        });
-        $('.tag').on('change keypress', function(e){
-            if(e.which == 13)
-            {
-                getRank('.tag','.server');
-            }
-            else
-            {
-                getRank('.tag','.server');
-                getPrice();
-                if($('.tag').val() == "")
-                {
-                    $('.currentRank').prop( "disabled", false );
-                }
-            }
-        });
     // --/
 
     // Level
-        $('.newLevel').on("change", function(){
-            if($(this) != "")
+    $('.newLevel').on("keyup", function(){
+        var level = $(this).val();
+        if($.isNumeric(level) && level != "")
+        {
+            if(level <= 0)
+            {
+                $(this).val('10');
+            }
+            else if (level > 1000) {
+                $(this).val('1000');
+            }
+            else
             {
                 levelCompile($(this).val());
             }
-        })
+        }
+    });
+
+    $('.newLevel').on("change", function(){
+        if ($(this).val() == "")
+        {
+            $(this).val('10');
+        }
+    });
+
 
     // --/
 
