@@ -21,7 +21,7 @@ return [
     'form_email' => 'Email',
     'form_pass' => 'Password',
     'form_repass' => 'Confirm Password',
-    'form_tname' => 'Name',
+    'form_name' => 'Name',
     'form_surname' => 'Surname',
 
     'login' => 'Login',
