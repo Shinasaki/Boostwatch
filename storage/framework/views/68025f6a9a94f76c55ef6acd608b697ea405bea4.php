@@ -32,7 +32,8 @@
                 <br />
                 <button type="submit" id="button2"/><?php echo app('translator')->getFromJson('auth.login'); ?></button>
                 <br /><hr class="bg-white"/>
-                <a href="/register" class="color-black font-medium"><?php echo app('translator')->getFromJson('auth.register'); ?></a>
+                <a href="/register" class="color-black font-medium"><?php echo app('translator')->getFromJson('auth.register'); ?></a><br />
+                <a href="/password/reset" class="color-black font-medium"><?php echo app('translator')->getFromJson('auth.reset'); ?></a>
             </div>
 
             <?php echo e(Form::close()); ?>

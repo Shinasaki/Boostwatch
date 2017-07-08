@@ -26,5 +26,6 @@ return [
 
     'login' => 'Login',
     'register' => 'Create Your account',
+    'reset' => 'Forgot Your Password',
 
 ];

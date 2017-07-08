@@ -7,7 +7,15 @@
     </ul>
     <ul class="right">
         <li id="pc"><a href="boost" id="highlight"><?php echo app('translator')->getFromJson('header.boost'); ?></a></li>
-        <li class="dropdown" id="pc"><a><?php echo app('translator')->getFromJson('header.account'); ?><i class="fa fa-chevron-down"></i></a>
+        <li class="dropdown" id="pc"><a>
+            <?php if(Auth::check()): ?>
+                <?php echo e(Auth::user() -> name); ?>
+
+            <?php else: ?>
+                <?php echo app('translator')->getFromJson('header.account'); ?>
+            <?php endif; ?>
+
+        <i class="fa fa-chevron-down"></i></a>
             <ul>
             <?php if(Auth::check()): ?>
                 <li><a href="logout"><?php echo app('translator')->getFromJson('header.logout'); ?><i class="fa fa-sign-out"></i></a></li>

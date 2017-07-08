@@ -32,7 +32,8 @@
                 <br />
                 <button type="submit" id="button2"/>@lang('auth.login')</button>
                 <br /><hr class="bg-white"/>
-                <a href="/register" class="color-black font-medium">@lang('auth.register')</a>
+                <a href="/register" class="color-black font-medium">@lang('auth.register')</a><br />
+                <a href="/password/reset" class="color-black font-medium">@lang('auth.reset')</a>
             </div>
 
             {{ Form::close() }}

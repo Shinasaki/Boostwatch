@@ -7,7 +7,14 @@
     </ul>
     <ul class="right">
         <li id="pc"><a href="boost" id="highlight">@lang('header.boost')</a></li>
-        <li class="dropdown" id="pc"><a>@lang('header.account')<i class="fa fa-chevron-down"></i></a>
+        <li class="dropdown" id="pc"><a>
+            @if (Auth::check())
+                {{ Auth::user() -> name }}
+            @else
+                @lang('header.account')
+            @endif
+
+        <i class="fa fa-chevron-down"></i></a>
             <ul>
             @if (Auth::check())
                 <li><a href="logout">@lang('header.logout')<i class="fa fa-sign-out"></i></a></li>
