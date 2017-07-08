@@ -9,8 +9,12 @@
         <li id="pc"><a href="boost" id="highlight"><?php echo app('translator')->getFromJson('header.boost'); ?></a></li>
         <li class="dropdown" id="pc"><a><?php echo app('translator')->getFromJson('header.account'); ?><i class="fa fa-chevron-down"></i></a>
             <ul>
+            <?php if(Auth::check()): ?>
+                <li><a href="logout"><?php echo app('translator')->getFromJson('header.logout'); ?><i class="fa fa-sign-out"></i></a></li>
+            <?php else: ?>
                 <li><a href="login"><?php echo app('translator')->getFromJson('header.login'); ?><i class="fa fa-sign-in"></i></a></li>
                 <li><a href="register"><?php echo app('translator')->getFromJson('header.register'); ?><i class="fa fa-key"></i></a></li>
+            <?php endif; ?>
             </ul>
         </li>
     </ul>

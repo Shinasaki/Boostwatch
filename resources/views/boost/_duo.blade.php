@@ -1,4 +1,3 @@
-@include('layouts._language')
 @extends('boost.boost')
 @section('boost-content')
     Duo

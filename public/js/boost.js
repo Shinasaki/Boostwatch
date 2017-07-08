@@ -1,19 +1,7 @@
 function getPrice()
 {
-    var currentRank = parseInt($('.currentRank').val()) + 100;
+    var currentRank = parseInt($('.currentRank').val());
     var newRank = $('.newRank').val();
-
-    // Fill Empty
-    /*if($('.currentRank').val() == "" || $('#tag').val() < 0)
-    {
-        $('.currentRank').val("2700");
-
-        if(newRank < currentRank)
-        {
-            $('.currentRank').val("2800");
-        }
-    }*/
-
 
     // Limit Range
     if($.isNumeric(currentRank) && currentRank !== "")
@@ -21,11 +9,11 @@ function getPrice()
         $('.price').prop("disabled", false);
         $('.price').addClass('enabled');
         $('.price').removeClass('disabled');
-        if(currentRank - 100 >= newRank)
+        if(currentRank >= newRank)
         {
-            if (currentRank - 100 > 4500)
+            if (currentRank > 4500)
             {
-                currentRank = 4400 + 100;
+                currentRank = 4400;
                 newRank = 4500;
                 $('.currentRank').val("4400");
                 $('.newRank').val("4500");
@@ -34,7 +22,7 @@ function getPrice()
             {
                 if(newRank <= 4500)
                 {
-                    newRank = Math.round(currentRank / 100) * 100;
+                    newRank = Math.round((currentRank + 100) / 100) * 100;
                     $('.newRank').val(newRank);
                 }
             }
@@ -47,8 +35,20 @@ function getPrice()
                 $('.newRank').val(newRank);
             }
         }
-        //alert("current "+ currentRank + "new " + newRank);
         getPriceTh(currentRank,newRank);
+
+
+        // Switch [Off On] Submit
+        if(currentRank != "" && newRank != "" && $('.tag').val() != "" && $('.server').val() != "")
+        {
+            $('.checkout').prop("disabled", false);
+            $('.checkout').css("opacity", "1");
+        }
+        else
+        {
+            $('.checkout').prop("disabled", true);
+            $('.checkout').css("opacity", "0.7");
+        }
     }
 }
 
@@ -92,7 +92,6 @@ function getPriceTh(currentRank,newRank)
     rankImg('.boost-img1', currentRank);
     rankImg('.boost-img2', newRank);
     compileRank(currentRank, newRank);
-
 }
 
 
@@ -146,8 +145,7 @@ function getRank(elem,region) //.boost .solo
 
     function rankError(xhr, status, error)
     {
-        var err = eval("(" + xhr.responseText + ")");
-        $('.tag').append(err);
+        $('.tag').append("Timeout");
     }
     function boostSend()
     {
@@ -188,8 +186,7 @@ function compileRank(currentRank, newRank)
 
     function compileError(xhr, status, error)
     {
-        var err = eval("(" + xhr.responseText + ")");
-        $('.tag').append(err);
+        $('.tag').append("Timeout");
     }
 
 /* Level Compile */
@@ -215,6 +212,5 @@ function levelCompile(level)
     }
     function levelError(xhr, status, error)
     {
-        var err = eval("(" + xhr.responseText + ")");
-        $('.tag').append(err);
+        $('.tag').append("Timeout");
     }

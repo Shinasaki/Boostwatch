@@ -13,6 +13,10 @@
 
 // Auth
 Auth::routes();
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/');
+});
 
 
 // Language
@@ -22,11 +26,11 @@ Auth::routes();
 Route::get('/en', function () {
     //App::setLocale('en');
     Cookie::queue('Locale', 'en', '720');
-    return redirect('');
+    return back();
 });
 Route::get('/th', function () {
     Cookie::queue('Locale', 'th', '720');
-    return redirect('');
+    return back();
 });
 
 
@@ -41,3 +45,7 @@ Route::get('/boost/{page}', 'BoostController@boost');
 Route::post('/ajax/getRank', 'AjaxController@getRank');
 Route::post('/ajax/compileRank', 'AjaxController@compileRank');
 Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
+
+
+//Checkout
+Route::post('/checkout/rating', 'CheckoutController@rating') -> name('Checkout_rating');

@@ -2,7 +2,8 @@
 
 <?php $__env->startSection('boost-content'); ?>
     <div class="boost-rank">
-        <form method="post">
+        <?php echo e(Form::open(array('route' => 'Checkout_rating'))); ?>
+
             <div>
                 <span><?php echo app('translator')->getFromJson('boost.current'); ?></span><br /><hr /><br />
                 <input type="number" name="currentRank" class="currentRank" value="1700"/><br /><br /><hr /><br />
@@ -28,18 +29,19 @@
                 <span><?php echo app('translator')->getFromJson('boost.tag'); ?></span>
                 <span id="tag-load"> <i class="fa fa-spinner fa-spin fa-fw" style="display:none;"></i></i></span>
                 <br /><hr /><br />
-                <input type="text" name="newRank" class="tag" placeholder="Name#1107"/><br /><br /><hr /><br />
+                <input type="text" name="tag" class="tag" placeholder="Name#1107"/><br /><br /><hr /><br />
             </div>
 
             <div style="clear:both;">
                 <span><?php echo app('translator')->getFromJson('boost.pay'); ?></span><br /><hr /><br />
-                <span id="button" class="checkout">
+                <button type="submit" id="button" class="checkout" disabled>
                     <span class="price">50</span>
                     <span ><?php echo app('translator')->getFromJson('boost.currency'); ?></span>
-                </span>
+                </button>
                 <br /><br /><hr /><br />
             </div>
-        </form>
+        <?php echo e(Form::close()); ?>
+
     </div>
 <?php $__env->stopSection(); ?>
 

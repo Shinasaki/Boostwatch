@@ -19,6 +19,9 @@ $(window).bind("load", function() {
                 },1500);
             }
         });
+        $('form').submit(function(){
+            doorClose();
+        });
 
         // Dropdown.
         $('.dropdown').hover(function(){
@@ -40,24 +43,21 @@ $(window).bind("load", function() {
     // --/
 
 
-    // Boost
 
     // Process Price
-    $('.currentRank, .newRank').on("keyup", function(){
+    $('.currentRank').on("keyup", function(){
         getPrice();
     });
     $('.currentRank, .newRank').on("change", function(){
         if($('.currentRank').val() == "")
         {
             $('.currentRank').val("1700")
-            getPrice();
         }
         if($('.newRank').val() == "")
         {
             $('.currentRank').val("3000")
-            getPrice();
         }
-
+        getPrice();
     });
 
     // Get sr by tag
@@ -72,9 +72,10 @@ $(window).bind("load", function() {
         }
         getRank('.tag','.server');
     });
-    $('.tag').on('keypress', function(){
-        if (e.which == 13)
+    $('.tag').on('keypress', function(e){
+        if (e.which == 13 && $('.tag').focus())
         {
+            event.preventDefault();
             getRank('.tag','.server');
         }
     });
@@ -106,11 +107,7 @@ $(window).bind("load", function() {
             $(this).val('10');
         }
     });
-
-
     // --/
-
-
 
 
 });

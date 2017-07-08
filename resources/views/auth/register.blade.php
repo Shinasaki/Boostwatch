@@ -1,79 +1,50 @@
-@extends('layouts.app')
-
+@extends('layouts.layout')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    @foreach ($errors->all() as $message)
-                        {{ $message }} <br /><hr />
-                    @endforeach
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="layout divFull">
+        <div class="layout-box">
+            {{ Form::open(array('route' => 'register')) }}
+            <div class="form-group font-large color-black">
+                @lang('auth.register')
             </div>
+            <hr class="bg-white"/>
+            <div class="form-group">
+                <input type="email" class="{{ $errors->has('email') ? ' has-error' : '' }}" name="email" value="{{ old('email') }}" placeholder="@lang('auth.form_email')" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="left {{ $errors->has('name') ? ' has-error' : '' }}" name="name" value="{{ old('name') }}" placeholder="@lang('auth.form_name')" required autofocus style="width: 45%;">
+
+                <input type="text" class="right {{ $errors->has('lastsurname') ? ' has-error' : '' }}" name="surname" value="{{ old('surname') }}" placeholder="@lang('auth.form_surname')" required autofocus style="width: 45%;" >
+            </div>
+
+
+
+
+            <div class="clear form-group">
+                <input type="password" class="{{ $errors->has('password') ? ' has-error' : '' }}" name="password" placeholder="@lang('auth.form_pass')" required>
+                <input type="password" class="{{ $errors->has('password') ? ' has-error' : '' }}" name="password_confirmation" placeholder="@lang('auth.form_repass')" required>
+            </div>
+
+            <div class="form-group">
+                @if ($errors->any())
+                    <span class="help-block">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>- {{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <br />
+                <button type="submit" id="button2"/>@lang('auth.register')</button>
+                <br /><hr class="bg-white"/>
+                <a href="/login" class="color-black font-medium">@lang('auth.login')</a>
+            </div>
+
+            {{ Form::close() }}
         </div>
     </div>
-</div>
 @endsection

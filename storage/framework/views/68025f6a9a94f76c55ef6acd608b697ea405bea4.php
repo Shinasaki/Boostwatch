@@ -1,69 +1,44 @@
 <?php $__env->startSection('content'); ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="<?php echo e(route('login')); ?>">
-                        <?php echo e(csrf_field()); ?>
+    <div class="layout divFull">
+        <div class="layout-box">
+            <?php echo e(Form::open(array('route' => 'login'))); ?>
 
-
-                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
-
-                                <?php if($errors->has('email')): ?>
-                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('email')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                <?php if($errors->has('password')): ?>
-                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('password')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="form-group font-large color-black">
+                <?php echo app('translator')->getFromJson('auth.login'); ?>
             </div>
+            <hr class="bg-white"/>
+            <div class="form-group">
+                <input type="email" <?php echo e($errors->has('email') ? ' has-error' : ''); ?> name="email" value="<?php echo e(old('email')); ?>" placeholder="<?php echo app('translator')->getFromJson('auth.form_email'); ?>" required autofocus>
+            </div>
+
+            <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
+                <input type="password" <?php echo e($errors->has('password') ? ' has-error' : ''); ?> name="password" value="<?php echo e(old('password')); ?>" placeholder="<?php echo app('translator')->getFromJson('auth.form_pass'); ?>" required>
+            </div>
+
+
+            <div class="form-group">
+                <?php if($errors->any()): ?>
+                    <span class="help-block">
+                        <ul>
+                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li>- <?php echo e($error); ?></li>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </span>
+                <?php endif; ?>
+            </div>
+
+            <div class="form-group">
+                <br />
+                <button type="submit" id="button2"/><?php echo app('translator')->getFromJson('auth.login'); ?></button>
+                <br /><hr class="bg-white"/>
+                <a href="/register" class="color-black font-medium"><?php echo app('translator')->getFromJson('auth.register'); ?></a>
+            </div>
+
+            <?php echo e(Form::close()); ?>
+
         </div>
     </div>
-</div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

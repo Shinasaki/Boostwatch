@@ -1,4 +1,3 @@
-@include('layouts._language')
 @extends('layouts.layout')
 @section('content')
 

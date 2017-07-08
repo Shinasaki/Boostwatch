@@ -18,13 +18,13 @@ return [
 
 
 
-    'form_email' => 'Email',
-    'form_pass' => 'Password',
-    'form_repass' => 'Confirm Password',
-    'form_tname' => 'Name',
-    'form_surname' => 'Surname',
+    'form_email' => 'อีเมล',
+    'form_pass' => 'รหัสผ่าน',
+    'form_repass' => 'ยืนยันรหัสผ่าน',
+    'form_name' => 'ชื่อ',
+    'form_surname' => 'นามสกุล',
 
-    'login' => 'Login',
-    'register' => 'Create Your account',
+    'login' => 'เข้าสู่ระบบ',
+    'register' => 'สร้างบัญชีของคุณ',
 
 ];

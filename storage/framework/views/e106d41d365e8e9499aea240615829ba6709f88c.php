@@ -1,7 +1,7 @@
 <?php
 
     // get locale form cookie or ip
-    if(!Cookie::get('Locale'))
+    /*if(!Cookie::get('Locale'))
     {
         $language = explode(',',Request::server('HTTP_ACCEPT_LANGUAGE'));
         $language = $language[0];

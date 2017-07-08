@@ -7,10 +7,13 @@ use Cookie;
 
 class AjaxController extends Controller
 {
-    public function getRank()
+    public function getRank($tag = "", $region = "")
     {
-        $tag = str_replace("#", "-", $_POST['tag']);
-        $region = $_POST['region'];
+        if(empty($tag) || empty($region))
+        {
+            $tag = str_replace("#", "-", $_POST['tag']);
+            $region = $_POST['region'];
+        }
         $sh = curl_init();
         $url = "https://playoverwatch.com/en-us/career/pc/".$region."/".$tag;
 
@@ -39,18 +42,21 @@ class AjaxController extends Controller
 
         if(!empty($node))
         {
-            echo $node -> nodeValue;
+            return $node -> nodeValue;
         }
         else
         {
-            echo "0";
+            return "0";
         }
     }
 
-    public function compileRank()
+    public function compileRank($currentRank = "", $newRank = "")
     {
-        $currentRank = $_POST['currentRank'];
-        $newRank = $_POST['newRank'];
+        if(empty($currentRank) || empty($newRank))
+        {
+            $currentRank = $_POST['currentRank'];
+            $newRank = $_POST['newRank'];
+        }
 
         $priceSilver = 1;
         $priceGold = 1.3;
@@ -59,8 +65,8 @@ class AjaxController extends Controller
         $priceMaster = 5;
         $priceGrand = 10;
 
-        $currentRank = intval($currentRank) - 100;
-        $newRank = intval($newRank);
+        $currentRank = $currentRank;
+        $newRank = $newRank;
         $price = $newRank - $currentRank;
         //Bronze
         if ($currentRank <= 1499)

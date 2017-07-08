@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Hash;
 
 class RegisterController extends Controller
 {
@@ -37,6 +38,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('lang');
     }
 
     /**
@@ -48,16 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+
+            'email' => 'required|string|email|min:6|max:255|unique:users',
+            'name' => 'required|string|min:3|max:85',
+            'surname' => 'required|string|min:3|max:170',
             'password' => 'required|string|min:6|confirmed',
-            'tag' => 'required|string|min:6|max:255',
-            'ow_email' => 'required|string|min:6|max:255',
-            'ow_password' => 'required|string|min:6|max:255',
-            'current_rank' => 'required|integer',
-            'new_rank' => 'required|integer',
-            'price' => 'required|integer',
-            'region' => 'required|string|min:6|max:255',
         ]);
     }
 
@@ -70,16 +67,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'tag' => 'Peaches#1107',
-            'ow_email' => 'Shinasaki07@gmail.com',
-            'ow_password' => bcrypt('1457714577'),
-            'current_rank' => '1000',
-            'new_rank' => '3000',
-            'price' => '2000',
-            'region' => 'Thailand',
+            'name' => $data['name'],
+            'surname' => $data['surname'],
+            'password' => Hash::make($data['password'])
         ]);
     }
+
+
 }

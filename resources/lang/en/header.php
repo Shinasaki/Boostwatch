@@ -8,6 +8,7 @@ return [
     'boost' => 'Get Boost',
     'account' => 'My Account',
     'login' => 'Login',
+    'logout' => 'Logout',
     'register' => 'Register',
     'menu' => 'Menu',
     'support' => 'Support',

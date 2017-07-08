@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 class BoostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('lang');
+    }
+
+
     public function index()
     {
         return redirect('/boost/rating');

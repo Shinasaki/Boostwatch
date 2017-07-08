@@ -11,6 +11,11 @@
     src: url('../fonts/BrandVoic.ttf');
 }
 
+.face-bignoodle1{font-family: 'Bignoodle1'}
+.face-bignoodle2{font-family: 'Bignoodle2'}
+.face-brandvoic{font-family: 'BrandVoic'}
+
+
 *{
     padding: 0; margin: 0; text-decoration: none; list-style-type: none;
     font-family: 'Bignoodle1', 'BrandVoic', serif;
@@ -20,7 +25,25 @@ body{height: 100%;}
 .right{float:right;}
 .clear{clear:both;}
 .container{opacity: 0;}
-hr{background: #f2f2f2; width: auto; height: 1px; border:none; margin-top: 7px;}
+hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7px 0;}
+
+.font-small{font-size: 20px !important;}
+.font-medium{font-size: 24px !important;}
+.font-big{font-size: 27px !important;}
+.font-bigger{font-size: 30px !important;}
+.font-large{font-size: 35px !important;}
+.font-larger{font-size: 40px !important;}
+
+.bg-black{background: #282c37 !important;}
+.bg-orange{background: orange !important;}
+.bg-white{background: #f2f2f2 !important;}
+.bg-purple{background: #694892 !important;}
+
+.color-black{color: #282c37 !important;}
+.color-orange{color: orange !important;}
+.color-white{color: #f2f2f2 !important;}
+.color-purple{color: #694892 !important;}
+
 
 /* Element */
 #button
@@ -33,6 +56,28 @@ hr{background: #f2f2f2; width: auto; height: 1px; border:none; margin-top: 7px;}
     border: 2px solid #f2f2f2;
     text-align: center;
     font-size: 25px;
+}
+
+#button2
+{
+    display: block;
+    width: 100%;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    background: orange;
+    border: 2px solid #f2f2f2;
+    color:#f2f2f2;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+#button2:hover
+{
+    opacity: 0.8;
+}
+#button2:active
+{
+    opacity: 0.5;
 }
 
 
@@ -322,3 +367,59 @@ hr{background: #f2f2f2; width: auto; height: 1px; border:none; margin-top: 7px;}
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+/* Layout */
+.layout
+{
+    text-align: center;
+    margin: auto;
+    padding: 4% 5% 4% 5%;
+    background-image: url('../image/layout/bg.png');
+    background-size: cover;
+}
+
+.layout-box
+{
+    padding: 5%;
+    border-radius: 5px;
+    width: 30%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.5);
+
+}
+    .form-group
+    {
+        margin: auto;
+        width: 100%;
+    }
+    .form-group input
+    {
+        font-family: 'BrandVoic';
+        width: 96%;
+        padding: 2%;
+        border:none;
+        margin-top: 10px;
+        margin-bottom:  10px;
+        font-size:23px;
+    }
+    .form-group .help-block
+    {
+
+        display: block;
+        width: 96%;
+        background: #282c37;
+        color: red;
+        padding: 2%;
+    }
+        .help-block li
+        {
+            text-align: left;
+            font-family: 'BrandVoic';
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .has-error
+        {
+            box-shadow:0 0 0 1px red;
+        }

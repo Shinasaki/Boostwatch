@@ -60,13 +60,13 @@
         width: 20%;
         text-align: center;
     }
-        .boost-rank div:nth-child(odd)
+        .boost-rank div:nth-child(even)
         {
             float: left;
             margin-left: 15%;
 
         }
-        .boost-rank div:nth-child(even)
+        .boost-rank div:nth-child(odd)
         {
             float: right;
             margin-right: 15%;
@@ -108,6 +108,10 @@
                 {
                     font-family: 'BrandVoic';
                 }
+            .boost-rank .checkout
+            {
+                cursor: pointer;
+            }
 
 
     @media only screen and (max-width: 768px) {

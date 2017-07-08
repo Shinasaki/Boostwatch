@@ -9,8 +9,12 @@
         <li id="pc"><a href="boost" id="highlight">@lang('header.boost')</a></li>
         <li class="dropdown" id="pc"><a>@lang('header.account')<i class="fa fa-chevron-down"></i></a>
             <ul>
+            @if (Auth::check())
+                <li><a href="logout">@lang('header.logout')<i class="fa fa-sign-out"></i></a></li>
+            @else
                 <li><a href="login">@lang('header.login')<i class="fa fa-sign-in"></i></a></li>
                 <li><a href="register">@lang('header.register')<i class="fa fa-key"></i></a></li>
+            @endif
             </ul>
         </li>
     </ul>
