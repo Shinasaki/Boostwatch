@@ -11,6 +11,8 @@ return [
     'server' => 'Server',
     'tag' => 'Tag',
     'pay' => 'Checkout',
+    'bnet_email' => 'Blizzard Email',
+    'bnet_pass' => 'Blizzard Pass',
 
     'level' => 'New Level',
 

@@ -12,6 +12,8 @@ return [
     'tag' => 'แท็ก',
     'price' => 'ราคา',
     'pay' => 'จ่ายเงิน',
+    'bnet_email' => 'Blizzard อีเมล ',
+    'bnet_pass' => 'Blizzard รหัสผ่าน ',
 
     'level' => 'เลเวลใหม่',
 

@@ -31,6 +31,16 @@
             </div>
 
             <div style="clear:both;">
+                <span>@lang('boost.bnet_email')</span><br /><hr /><br />
+                <input type="email" name="bnet_email" class="bnet_email" placeholder="@lang('boost.bnet_email')"/><br /><br /><hr /><br />
+            </div>
+
+            <div>
+                <span>@lang('boost.bnet_pass')</span><br /><hr /><br />
+                <input type="password" name="bnet_pass" class="bnet_pass" placeholder="@lang('boost.bnet_pass')"/><br /><br /><hr /><br />
+            </div>
+
+            <div style="clear:both;">
                 <span>@lang('boost.pay')</span><br /><hr /><br />
                 <button type="submit" id="button" class="checkout" disabled>
                     <span class="price">50</span>

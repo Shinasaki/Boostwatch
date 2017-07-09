@@ -80,7 +80,7 @@
                 font-size:30px;
                 color: #f2f2f2;
             }
-            .boost-rank input[type=number], .boost-rank input[type=text]
+            .boost-rank input
             {
                 height: 35px;
                 width: 60%;
