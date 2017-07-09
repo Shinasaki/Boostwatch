@@ -5,7 +5,7 @@
 
 
         <div class="layout-box">
-            {{ Form::open(array('route' => 'password.email')) }}
+            {{ Form::open(array('route' => 'password.request')) }}
             <div class="form-group font-large color-black">
                 Reset Password
             </div>

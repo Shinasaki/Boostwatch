@@ -52,8 +52,11 @@
         <div style="z-index:5;position:fixed;bottom:10px;right:10px;">
             <button onclick="doorOpen()">Open</button>
             <button onclick="doorClose()" >Close</button>
+            <button onclick="popup_open()">Popup Open</button>
+            <button onclick="popup_close()" >Popup Close</button>
         </div>
         <?php echo $__env->make('layouts._animate', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('layouts._popup', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="container">
             <?php echo $__env->make('layouts._header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->yieldContent('content'); ?>

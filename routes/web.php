@@ -49,3 +49,9 @@ Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
 
 //Checkout
 Route::post('/checkout/rating', 'CheckoutController@rating') -> name('Checkout_rating');
+
+
+
+
+// Error
+Route::get('/error/auth/{type}', 'ErrorController@auth') -> name('authError');

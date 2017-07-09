@@ -14,13 +14,20 @@ $(window).bind("load", function() {
                 event.preventDefault();
                 var href = this.href;
                 doorClose();
+                popup_close();
                 setTimeout(function(){
                     window.location = href;
                 },1500);
             }
         });
         $('form').submit(function(){
+            form = this;
+            event.preventDefault();
             doorClose();
+            popup_close();
+            setTimeout( function () {
+                form.submit();
+            }, 1500);
         });
 
         // Dropdown.
@@ -109,12 +116,52 @@ $(window).bind("load", function() {
     });
     // --/
 
+    // Popup
+        $('.popup').click(function(e){
+            if (e.target == this){
+                popup_close();
+            }
+        });
+
+        $('.popup-title i').click(function(){
+            popup_close();
+        });
+
+
+        if ($.urlParam('alert') == "login") {
+            popup_open("Permission Denied","Please Login","Login","yes","/login");
+            setTimeout(function(){ popup_close() },4000);
+        }
+        else if ($.urlParam('alert') == "member") {
+            popup_open("Permission Denied","Your are not Member");
+            setTimeout(function(){ popup_close() },4000);
+        }
+        else if ($.urlParam('alert') == "staff") {
+            popup_open("Permission Denied","Your are not Staff");
+            setTimeout(function(){ popup_close() },4000);
+        }
+        else if ($.urlParam('alert') == "admin") {
+            popup_open("Permission Denied","Your are not Admin");
+            setTimeout(function(){ popup_close() },4000);
+        }
+        else
+        {
+            popup_open("Error","Please contact webmaster.","Send","yes","/contact");
+        }
+    // - /
+
 
 });
 
 
 
 // Function.
+
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] || 0;
+}
+
 function doorOpen()
 {
     $('.door-left').animate(
@@ -196,4 +243,25 @@ function doorClose()
         }
     )
     //$('.nav').slideUp(600);
+}
+
+function popup_open(title,content,footer = "", button = "", href="")
+{
+    $('.popup').fadeIn('toggle');
+    $('.popup-title span').text(title);
+    $('.popup-content').text(content);
+    if (footer !="" && button != "" && href != "")
+    {
+        $('.popup-footer a').css('display', 'block');
+        $('.popup-footer a').text(footer);
+        $('.popup-footer a').attr('href', href);
+    }
+
+}
+
+function popup_close()
+{
+    $('.popup').fadeOut('toggle');
+    $('.popup-footer #button').css('display', 'none');
+    window.history.replaceState(null, null, window.location.pathname);
 }

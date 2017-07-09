@@ -1,5 +1,3 @@
-<?php echo $__env->make('layouts._language', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
 <?php $__env->startSection('boost-content'); ?>
     <div class="boost-rank">
         <form method="post">

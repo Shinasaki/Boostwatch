@@ -7,6 +7,12 @@ use App;
 
 class CheckoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('lang');
+        $this->middleware('member');
+    }
+
     public function rating()
     {
         $tag = $_POST['tag'];

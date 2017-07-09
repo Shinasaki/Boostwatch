@@ -39,7 +39,7 @@ function getPrice()
 
 
         // Switch [Off On] Submit
-        if(currentRank != "" && newRank != "" && $('.tag').val() != "" && $('.server').val() != "")
+        if(currentRank >= 0 && newRank != "" && $('.tag').val() != "" && $('.server').val() != "")
         {
             $('.checkout').prop("disabled", false);
             $('.checkout').css("opacity", "1");
@@ -150,11 +150,13 @@ function getRank(elem,region) //.boost .solo
     function boostSend()
     {
         $('#tag-load i').css('display','inline-block');
+        $('.server, .tag').prop( "disabled", true );
     }
 
     function boostComplete()
     {
         $('#tag-load i').css('display','none');
+        $('.server, .tag').prop( "disabled", false );
         getPrice();
     }
 

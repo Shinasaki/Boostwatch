@@ -43,8 +43,11 @@
         <div style="z-index:5;position:fixed;bottom:10px;right:10px;">
             <button onclick="doorOpen()">Open</button>
             <button onclick="doorClose()" >Close</button>
+            <button onclick="popup_open()">Popup Open</button>
+            <button onclick="popup_close()" >Popup Close</button>
         </div>
         @include('layouts._animate')
+        @include('layouts._popup')
         <div class="container">
             @include('layouts._header')
             @yield('content')

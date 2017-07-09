@@ -41,8 +41,8 @@ class LoginController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => 'required|string|email|max:255|',
-            'password' => 'required|string|min:6|',
+            'email' => 'required|string|email|min:8|max:255|',
+            'password' => 'required|string|min:6|max:255|',
         ]);
     }
 
