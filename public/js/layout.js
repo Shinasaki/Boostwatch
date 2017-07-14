@@ -146,7 +146,8 @@ $(window).bind("load", function() {
         }
         else
         {
-            popup_open("Error","Please contact webmaster.","Send","yes","/contact");
+            popup_open("Alert", $.urlParam('alert'));
+            setTimeout(function(){ popup_close() },4000);
         }
     // - /
 

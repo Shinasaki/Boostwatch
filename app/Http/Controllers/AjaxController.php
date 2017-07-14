@@ -50,9 +50,9 @@ class AjaxController extends Controller
         }
     }
 
-    public function compileRank($currentRank = "", $newRank = "")
+    public function compileRank($currentRank = 0, $newRank = 0)
     {
-        if(empty($currentRank) || empty($newRank))
+        if($currentRank == 0 || $newRank == 0)
         {
             $currentRank = $_POST['currentRank'];
             $newRank = $_POST['newRank'];

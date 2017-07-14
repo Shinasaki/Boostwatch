@@ -26,6 +26,7 @@
         {{ HTML::style('css/layout.css') }}
         {{ HTML::style('css/scroll.css') }}
         {{ HTML::style('css/boost.css') }}
+        {{ HTML::style('css/payment.css') }}
 
 
         <!-- JS -->
@@ -48,6 +49,7 @@
         </div>
         @include('layouts._animate')
         @include('layouts._popup')
+        @include('layouts._basket')
         <div class="container">
             @include('layouts._header')
             @yield('content')

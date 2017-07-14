@@ -30,6 +30,8 @@
 
         <?php echo e(HTML::style('css/boost.css')); ?>
 
+        <?php echo e(HTML::style('css/payment.css')); ?>
+
 
 
         <!-- JS -->
@@ -57,6 +59,7 @@
         </div>
         <?php echo $__env->make('layouts._animate', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->make('layouts._popup', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('layouts._basket', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="container">
             <?php echo $__env->make('layouts._header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->yieldContent('content'); ?>

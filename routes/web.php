@@ -50,7 +50,11 @@ Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
 //Checkout
 Route::post('/checkout/rating', 'CheckoutController@rating') -> name('Checkout_rating');
 
+Route::get('/checkout', 'CheckoutController@checkout') -> name('Checkout');
+Route::get('/checkout/cancel/{id}', 'CheckoutController@cancel');
 
+Route::get('/paypal', 'PaypalController@payment') -> name('Paypal');
+Route::get('/paypal/{callback}', 'PaypalController@callback');
 
 
 // Error

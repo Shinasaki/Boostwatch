@@ -4,7 +4,6 @@
         <div class="boost-box">
             <div class="boost-menu">
                 <ul>
-
                     <a href="rating" id="<?php echo e((collect(request()->segments())->last() == 'rating' ? 'active' : '')); ?>"><li><?php echo app('translator')->getFromJson('boost.rating'); ?></li></a>
 
 

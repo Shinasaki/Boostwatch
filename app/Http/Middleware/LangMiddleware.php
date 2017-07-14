@@ -35,15 +35,18 @@ class LangMiddleware
             if($language == 'th-TH' || $language == 'th')
             {
                 App::setLocale('th');
+                Cookie::queue('Locale', 'th', '720');
             }
             else
             {
                 App::setLocale('en');
+                Cookie::queue('Locale', 'en', '720');
             }
         }
         else
         {
             App::setLocale('en');
+            Cookie::queue('Locale', 'en', '720');
         }
 
         return $next($request);

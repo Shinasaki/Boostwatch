@@ -10,6 +10,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "mcamara/laravel-localization": "^1.2",
+        "paypal/merchant-sdk-php": "^3.11",
+        "paypal/rest-api-sdk-php": "*",
         "stevebauman/location": "2.0.*"
     },
     "require-dev": {

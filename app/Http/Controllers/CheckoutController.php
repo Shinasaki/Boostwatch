@@ -8,7 +8,8 @@ use App;
 use Auth;
 use Crypt;
 use Session;
-use App\Models\WorkModel;
+use App\Models\Checkout;
+use Illuminate\Support\Facades\Redirect;
 
 class CheckoutController extends Controller
 {
@@ -29,7 +30,7 @@ class CheckoutController extends Controller
         $bnet_pass = Crypt::encrypt($_POST['bnet_pass']);
         $user_id = Auth::id();
 
-        WorkModel::WorksPush([
+        Checkout::PushWork([
             'tag' => $tag,
             'server' =>$server,
             'currentRank' => $currentRank,
@@ -40,8 +41,41 @@ class CheckoutController extends Controller
             'user_id' => $user_id,
         ]);
         $id = DB::getPdo()->lastInsertId();
-        session(['work_tag' => $id]);
-        return redirect("/payment");
+
+        if (session()->has('work_id')) {
+            session()->push('work_id', $id);
+        } else {
+            session(['work_id' => array($id)]);
+        }
+        print_r(session('work_id'));
+        return redirect("/checkout");
     }
 
+    public function checkout()
+    {
+        if (!session()->has('work_id'))
+        {
+            return redirect("/boost");
+        }
+        else
+        {
+            return view('payment.payment');
+        }
+    }
+
+    public function cancel($id = "")
+    {
+        $value = session()->get('work_id');
+        if (($key = array_search($id, $value)) !== false) {
+            unset($value[$key]);
+        }
+
+        session()->forget('work_id');
+
+        foreach ($value as $data) {
+            session()->push('work_id', $data);
+        }
+
+        return redirect()->back();
+    }
 }

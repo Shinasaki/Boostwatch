@@ -5,7 +5,6 @@
         <div class="boost-box">
             <div class="boost-menu">
                 <ul>
-
                     <a href="rating" id="{{ (collect(request()->segments())->last() == 'rating' ? 'active' : '') }}"><li>@lang('boost.rating')</li></a>
 
 
