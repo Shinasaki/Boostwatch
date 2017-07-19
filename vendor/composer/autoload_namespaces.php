@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src'),
+    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PayPal\\Service' => array($vendorDir . '/paypal/merchant-sdk-php/lib'),
     'PayPal\\PayPalAPI' => array($vendorDir . '/paypal/merchant-sdk-php/lib'),

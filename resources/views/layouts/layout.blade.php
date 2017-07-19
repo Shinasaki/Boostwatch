@@ -27,6 +27,7 @@
         {{ HTML::style('css/scroll.css') }}
         {{ HTML::style('css/boost.css') }}
         {{ HTML::style('css/payment.css') }}
+        {{ HTML::style('css/dashboard.css') }}
 
 
         <!-- JS -->

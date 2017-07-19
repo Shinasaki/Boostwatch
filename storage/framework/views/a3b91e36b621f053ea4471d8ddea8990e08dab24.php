@@ -3,7 +3,11 @@
         <li><a href="/" style="color:#fff">Boostwatch</a></li>
         <li><a href="/"><?php echo app('translator')->getFromJson('header.home'); ?></a></li>
         <li><a href="why"><?php echo app('translator')->getFromJson('header.why'); ?></a></li>
-        <li><a href="review"><?php echo app('translator')->getFromJson('header.reviews'); ?></a></li>
+        <li><a href="review"><?php echo app('translator')->getFromJson('header.reviews'); ?><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+        <?php if(Auth::check()): ?>
+            <li><a href="/dashboard"><?php echo app('translator')->getFromJson('header.dashboard'); ?><i class="fa fa-tachometer"></i></a></li>
+        <?php endif; ?>
+
     </ul>
     <ul class="right">
         <li id="pc"><a href="boost" id="highlight"><?php echo app('translator')->getFromJson('header.boost'); ?></a></li>
@@ -18,6 +22,7 @@
         <i class="fa fa-chevron-down"></i></a>
             <ul>
             <?php if(Auth::check()): ?>
+                <li><a href="/profile"><?php echo app('translator')->getFromJson('header.profile'); ?><i class="fa fa-user-circle"></i></a></li>
                 <li><a href="/logout"><?php echo app('translator')->getFromJson('header.logout'); ?><i class="fa fa-sign-out"></i></a></li>
             <?php else: ?>
                 <li><a href="/login"><?php echo app('translator')->getFromJson('header.login'); ?><i class="fa fa-sign-in"></i></a></li>
@@ -36,6 +41,8 @@
         <li class="dropdown" id="pc"><a><?php echo app('translator')->getFromJson('header.menu'); ?><i class="fa fa-bars" aria-hidden="true"></i></i></a>
             <ul>
                 <?php if(Auth::check()): ?>
+                    <li><a href="/dashboard"><?php echo app('translator')->getFromJson('header.dashboard'); ?><i class="fa fa-tachometer"></i></a></li>
+                    <li><a href="/profile"><?php echo app('translator')->getFromJson('header.profile'); ?><i class="icon-user"></i></a></li>
                     <li><a href="/logout"><?php echo app('translator')->getFromJson('header.logout'); ?><i class="fa fa-sign-out"></i></a></li>
                 <?php else: ?>
                     <li><a href="/login"><?php echo app('translator')->getFromJson('header.login'); ?><i class="fa fa-sign-in"></i></a></li>

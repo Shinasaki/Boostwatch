@@ -24,6 +24,7 @@ body{height: 100%;}
 .left{float:left;}
 .right{float:right;}
 .clear{clear:both;}
+.center{text-align: center !important}
 .container{opacity: 0;}
 hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7px 0;}
 
@@ -34,6 +35,9 @@ hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7
 .font-large{font-size: 35px !important;}
 .font-larger{font-size: 40px !important;}
 .font-bold{font-weight: bold !important;}
+.font-left{text-align: left !important;}
+.font-center{text-align: center !important;}
+.font-right{text-align: right !important;}
 
 .bg-black{background: #282c37 !important;}
 .bg-orange{background: orange !important;}
@@ -360,6 +364,27 @@ hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7
         {
             box-shadow:0 0 0 1px red;
         }
+.layout-box table
+{
+    width: 100%;
+    border-collapse:collapse;
+
+}   .layout-box table tr:nth-child(even)
+    {
+        background: #e6e6e6;
+    }
+    .layout-box table td
+    {
+        padding: 1.5%;
+        font-size: 22px;
+        font-family: 'BrandVoic' !important;
+        text-align: left;
+    }
+    .layout-box table td:first-child
+    {
+        text-align: right;
+        font-weight: bold;
+    }
 
     @media only screen and (max-width: 768px) {
         .layout-box
@@ -532,28 +557,26 @@ hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7
         font-size: 20px;
         color: #694892;
     }
-    .basket tr:first-child td
+    .basket tr td:first-child
     {
         background: orange;
+        padding: 2%;
     }
         .basket tr:first-child td:first-child
         {
-            background: orange;
             border-top-left-radius: 5px;
-            padding: 2%;
         }
         .basket tr:last-child td:first-child
         {
             border-bottom-left-radius: 5px;
-            background: orange;
-            padding: 2%;
         }
+
     .basket tr td:not(:first-child)
     {
         background: #f2f2f2;
         padding: 10px;
     }
-        .basket tr:nth-child(even) td
+        .basket tr:nth-child(even) td:not(:first-child)
         {
-            background: #ccc;
+            background: #e6e6e6;
         }

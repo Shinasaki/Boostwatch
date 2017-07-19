@@ -27,8 +27,7 @@ class AuthAdmin
         }
         else
         {
-            $url = redirect()->getUrlGenerator()->previous() . "?alert=login";
-            return Redirect::to($url);
+            return redirect('/login?alert=login');
         }
 
         return $next($request);

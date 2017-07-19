@@ -89,6 +89,19 @@ $(window).bind("load", function() {
 
     // --/
 
+    $('.bnet_email, .bnet_pass').on('keypress', function() {
+        if ($('.bnet_email').val() != "" && $('.bnet_pass').val() != "")
+        {
+            $('.checkout').prop("disabled", false);
+            $('.checkout').css("opacity", "1");
+        }
+        else
+        {
+            $('.checkout').prop("disabled", true);
+            $('.checkout').css("opacity", "0.7");
+        }
+    });
+
     // Level
     $('.newLevel').on("keyup", function(){
         var level = $(this).val();
@@ -144,8 +157,7 @@ $(window).bind("load", function() {
             popup_open("Permission Denied","Your are not Admin");
             setTimeout(function(){ popup_close() },4000);
         }
-        else
-        {
+        else if ($.urlParam('alert') !== null) {
             popup_open("Alert", $.urlParam('alert'));
             setTimeout(function(){ popup_close() },4000);
         }
@@ -160,7 +172,13 @@ $(window).bind("load", function() {
 
 $.urlParam = function(name){
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	return results[1] || 0;
+    if (results==null){
+        return null;
+    }
+    else{
+        return decodeURI(results[1]) || 0;
+    }
+
 }
 
 function doorOpen()

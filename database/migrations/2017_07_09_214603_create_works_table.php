@@ -13,7 +13,7 @@ class CreateWorksTable extends Migration
      */
     public function up()
     {
-        Schema::create('works', function (Blueprint $table) {
+        Schema::create('rating_works', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bnet_email');
             $table->string('bnet_password');
@@ -22,7 +22,8 @@ class CreateWorksTable extends Migration
             $table->integer('currentRank');
             $table->integer('newRank');
             $table->integer('price');
-            $table->integer('users_id');
+            $table->integer('currency');
+            $table->integer('user_id');
             $table->string('status');
             $table->timestamps();
         });
@@ -35,6 +36,6 @@ class CreateWorksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('works');//
+        Schema::dropIfExists('rating_works');//
     }
 }

@@ -9,11 +9,13 @@ class AjaxController extends Controller
 {
     public function getRank($tag = "", $region = "")
     {
-        if(empty($tag) || empty($region))
+        if(isset($_POST['tag']) && isset($_POST['region']))
         {
-            $tag = str_replace("#", "-", $_POST['tag']);
+            $tag = $_POST['tag'];
             $region = $_POST['region'];
         }
+
+        $tag = str_replace("#", "-", $tag);
         $sh = curl_init();
         $url = "https://playoverwatch.com/en-us/career/pc/".$region."/".$tag;
 
@@ -58,6 +60,7 @@ class AjaxController extends Controller
             $newRank = $_POST['newRank'];
         }
 
+        $priceBronze = 1;
         $priceSilver = 1;
         $priceGold = 1.3;
         $pricePlatinum = 2;

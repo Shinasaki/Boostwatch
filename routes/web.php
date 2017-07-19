@@ -41,7 +41,6 @@ Route::get('/', 'IndexController@index')->name('index');
 //Boost
 Route::get('/boost', 'BoostController@index')->name('boost');
 Route::get('/boost/{page}', 'BoostController@boost');
-
 Route::post('/ajax/getRank', 'AjaxController@getRank');
 Route::post('/ajax/compileRank', 'AjaxController@compileRank');
 Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
@@ -49,13 +48,14 @@ Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
 
 //Checkout
 Route::post('/checkout/rating', 'CheckoutController@rating') -> name('Checkout_rating');
-
 Route::get('/checkout', 'CheckoutController@checkout') -> name('Checkout');
 Route::get('/checkout/cancel/{id}', 'CheckoutController@cancel');
-
 Route::get('/paypal', 'PaypalController@payment') -> name('Paypal');
 Route::get('/paypal/{callback}', 'PaypalController@callback');
 
+
+//Dashboard
+Route::get('/dashboard', 'dashboard\Dashboard@index') -> name('Dashboard');
 
 // Error
 Route::get('/error/auth/{type}', 'ErrorController@auth') -> name('authError');

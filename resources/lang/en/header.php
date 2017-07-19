@@ -13,4 +13,6 @@ return [
     'menu' => 'Menu',
     'support' => 'Support',
     'jobs' => 'Jobs',
+    'profile' => 'Profile',
+    'dashboard' => 'Dashboard',
 ];
