@@ -5,12 +5,12 @@
         <li><a href="why">@lang('header.why')</a></li>
         <li><a href="review">@lang('header.reviews')<i class="fa fa-eye" aria-hidden="true"></i></a></li>
         @if (Auth::check())
-            <li><a href="/dashboard">@lang('header.dashboard')<i class="fa fa-tachometer"></i></a></li>
+            <li><a href="/dashboard/rating">@lang('header.dashboard')<i class="fa fa-tachometer"></i></a></li>
         @endif
 
     </ul>
     <ul class="right">
-        <li id="pc"><a href="boost" id="highlight">@lang('header.boost')</a></li>
+        <li id="pc"><a href="/boost/rating" id="highlight">@lang('header.boost')</a></li>
         <li class="dropdown" id="pc"><a>
             @if (Auth::check())
                 {{ Auth::user() -> name }}
@@ -40,7 +40,7 @@
         <li class="dropdown" id="pc"><a>@lang('header.menu')<i class="fa fa-bars" aria-hidden="true"></i></i></a>
             <ul>
                 @if (Auth::check())
-                    <li><a href="/dashboard">@lang('header.dashboard')<i class="fa fa-tachometer"></i></a></li>
+                    <li><a href="/dashboard/rating">@lang('header.dashboard')<i class="fa fa-tachometer"></i></a></li>
                     <li><a href="/profile">@lang('header.profile')<i class="icon-user"></i></a></li>
                     <li><a href="/logout">@lang('header.logout')<i class="fa fa-sign-out"></i></a></li>
                 @else

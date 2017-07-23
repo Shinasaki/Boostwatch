@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Chat;
 use Cookie;
+use Session;
+use Auth;
+use DB;
 
 class AjaxController extends Controller
 {
+
     public function getRank($tag = "", $region = "")
     {
         if(isset($_POST['tag']) && isset($_POST['region']))
@@ -264,6 +269,29 @@ class AjaxController extends Controller
                 $price = $price / 32.5;
             }
             return round($price);
+        }
+    }
+
+    public function chat()
+    {
+        if(isset($_POST['msg']) && session()->has('progress')) {
+            Chat::chatPush([
+                'name' => session('progress')[0]['tag'],
+                'message' => $_POST['msg'],
+                'user_id' => session('progress')[0]['user_id'],
+                'work_id' => session('progress')[0]['id'],
+            ]);
+            return 'success';
+        }
+    }
+    public function chatMsg()
+    {
+        if (session()->has('progress')) {
+            $Chat = DB::table('chat')
+                ->where('work_id', '=', session('progress')[0]['id'])
+                ->orderBy('created_at')
+                ->get();
+            return array($Chat, Auth::id());
         }
     }
 }

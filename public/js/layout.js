@@ -5,6 +5,15 @@ $(window).bind("load", function() {
 
         // Autoload.
             setTimeout(function(){ doorOpen() },500);
+            // Chat auto update
+            window.setInterval(function(){
+                var maxScrollTop = $(".chat-msg")[0].scrollHeight - $(".chat-msg").outerHeight();
+                var minScrollTop = $('.chat-msg').scrollTop();
+
+                if (maxScrollTop - minScrollTop < 200) {
+                    chatMsg();
+                }
+            }, 5000);
 
 
         // Animate when change page.
@@ -41,11 +50,17 @@ $(window).bind("load", function() {
     imgFit();
     divFull();
     getPrice();
+    progress_bar();
+    set_height('.dashboard .left, div #right');
+    chatMsg();
 
     // Layout setting when resize.
     $(window).resize(function(){
         imgFit();
         divFull();
+        progress_bar();
+        set_height('.dashboard .left, div #right');
+        chatMsg();
     });
     // --/
 
@@ -161,6 +176,22 @@ $(window).bind("load", function() {
             popup_open("Alert", $.urlParam('alert'));
             setTimeout(function(){ popup_close() },4000);
         }
+    // - /
+
+
+
+    // Chat
+    $('.msg').on('keypress', function(e){
+        if (e.which == 13 && $('.msg').focus())
+        {
+            chat($('.msg').val());
+            $(this).val('');
+        }
+    });
+    $('.msg_submit').on('click', function(){
+        chat($('.msg').val());
+        $('.msg').val('');
+    });
     // - /
 
 

@@ -19,10 +19,11 @@ class CreateWorksTable extends Migration
             $table->string('bnet_password');
             $table->string('tag');
             $table->string('server');
+            $table->integer('startRank');
             $table->integer('currentRank');
             $table->integer('newRank');
             $table->integer('price');
-            $table->integer('currency');
+            $table->string('currency');
             $table->integer('user_id');
             $table->string('status');
             $table->timestamps();

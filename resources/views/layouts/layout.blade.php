@@ -36,6 +36,7 @@
         {{ HTML::script('js/screen.js') }}
         {{ HTML::script('js/layout.js') }}
         {{ HTML::script('js/boost.js') }}
+        {{ HTML::script('js/dashboard.js') }}
 
 
     </head>

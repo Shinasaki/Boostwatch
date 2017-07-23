@@ -15,7 +15,7 @@
                     <a style="opacity:0.3" id="{{ (collect(request()->segments())->last() == 'placment' ? 'active' : '') }}"><li>@lang('boost.placment')&nbsp; <i class="fa fa-times" aria-hidden="true" style="color:red;"></i></li></a>
 
 
-                    <a href="leveling" id="{{ (collect(request()->segments())->last() == 'leveling' ? 'active' : '') }}"><li>@lang('boost.leveling')</li></a>
+                    <a style="opacity:0.3" id="{{ (collect(request()->segments())->last() == 'leveling' ? 'active' : '') }}"><li>@lang('boost.leveling')&nbsp; <i class="fa fa-times" aria-hidden="true" style="color:red;"></i></li></a>
                 </ul>
             </div>
             <div class="boost-content">

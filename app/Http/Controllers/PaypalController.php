@@ -49,7 +49,8 @@ class PaypalController extends Controller
             session('works')[0]['tag']." ( ".
             session('works')[0]['currentRank']." - ".
             session('works')[0]['newRank']." ) ".
-            session('works')[0]['price'].$currency;
+            session('works')[0]['price'].$currency.
+            " [".session('works')[0]['server']."]";
 
         $payer = new Payer();
         $payer->setPaymentMethod("paypal");

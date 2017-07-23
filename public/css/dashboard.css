@@ -1,0 +1,157 @@
+.dashboard {
+    height: 100%;
+    color:#f2f2f2;
+    font-size: 25px;
+}
+.dashboard div.left {
+    min-width: 138.5px;
+    width: 15%; height: 100%;
+    min-height: 100%;
+    background: #282c37;
+    box-shadow: 4px 0 0 0px #876da8;
+}
+    .dashboard div.left .dashboard-profile {
+        background: orange;
+        padding: 20px 20px 20px 20px;
+    }
+    .dashboard div.left .dashboard-menu li{
+        padding: 10px 20px 10px 20px;
+        color:#f2f2f2;
+        transition:opacity 0.3s
+    }
+        .dashboard div.left .dashboard-menu li:hover{
+            opacity: 0.8;
+        }
+        .dashboard div.left .dashboard-menu li:active{
+            opacity: 0.5;
+        }
+        .dashboard #active
+        {
+            background: #16171d;
+            text-shadow: 0px 0px 5px #f2f2f2;
+        }
+.dashboard div#right {
+    min-height: 100%;
+    width: auto;
+    background: #808080;
+}
+    .progress {
+        background: #1a1a1a
+    }
+    .progress-bar {
+        display: inline-block;
+        background: #694892;
+        background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%, transparent
+      );
+      z-index: 1;
+      background-size: 100px 100px;
+      animation: move 3s linear infinite;
+    }
+    @keyframes move {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100px 0px;
+      }
+    }
+    .progress-bar div {
+        padding: 20px;
+    }
+
+/* Rating */
+.dashboard-rating #section1{
+    background: #e6e6e6;
+}
+    .dashboard-rating table {
+        border-collapse:collapse;
+    }
+    .dashboard-rating table td {
+        padding: 20px;
+    }
+        .dashboard-rating table td span{
+            color: #282c37;
+            font-size: 30px;
+        }
+        .dashboard-rating table td span:nth-child(2) {
+            font-weight: bold;
+            color: #1ba400;
+        }
+
+@media only screen and (max-width: 768px) {
+    .dashboard-rating table td span
+    {
+        font-size: 20px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Chat */
+.dashboard-chat {
+    width: auto;
+}
+.chat-msg {
+    background: #f2f2f2;
+    text-align: center;
+    height: 50%;
+    font-size: 20px;
+    overflow-y: scroll;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+    .chat-msg table {
+        width: 100%;
+    }
+        .chat-msg td:first-child {
+            text-align: left;
+        }
+        .chat-msg td:last-child {
+            text-align: right;
+        }
+        .chat-msg td span {
+            font-family: 'BrandVoic';
+        }
+        .chat-msg tr:nth-child(even) {
+            background: #d9d9d9;
+        }
+    .chat-submit {
+        text-align: center;
+    }
+    .chat-submit input {
+        font-family: 'BrandVoic';
+        width: 80%; /* 80% */
+        border: none;
+        padding: 20px 5% 20px 5%;
+        border-bottom-left-radius: 5px;
+        outline: none;
+        font-size: 25px;
+    }
+    .chat-submit button {
+        font-family: 'BrandVoic';
+        width: 10%; /* 20% */
+        cursor: pointer;
+        border: none;
+        padding: 20px 5% 20px 5%;
+        border-bottom-right-radius: 5px;
+        outline: none;
+        color: #f2f2f2;
+        font-size: 25px;
+        background: orange;
+    }

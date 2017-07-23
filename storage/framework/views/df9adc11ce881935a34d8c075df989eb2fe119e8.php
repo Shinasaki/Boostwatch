@@ -32,6 +32,8 @@
 
         <?php echo e(HTML::style('css/payment.css')); ?>
 
+        <?php echo e(HTML::style('css/dashboard.css')); ?>
+
 
 
         <!-- JS -->
@@ -44,6 +46,8 @@
         <?php echo e(HTML::script('js/layout.js')); ?>
 
         <?php echo e(HTML::script('js/boost.js')); ?>
+
+        <?php echo e(HTML::script('js/dashboard.js')); ?>
 
 
 

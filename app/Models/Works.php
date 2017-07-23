@@ -15,6 +15,7 @@ class Works extends Model
         $WorkModel->bnet_password = $request['bnet_pass'];
         $WorkModel->tag = $request['tag'];
         $WorkModel->server = $request['server'];
+        $WorkModel->startRank = $request['currentRank'];
         $WorkModel->currentRank = $request['currentRank'];
         $WorkModel->newRank = $request['newRank'];
         $WorkModel->price = $request['price'];

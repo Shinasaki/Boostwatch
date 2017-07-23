@@ -55,7 +55,11 @@ Route::get('/paypal/{callback}', 'PaypalController@callback');
 
 
 //Dashboard
-Route::get('/dashboard', 'dashboard\Dashboard@index') -> name('Dashboard');
+Route::get('/dashboard/{page}', 'dashboard\Dashboard@index') -> name('Dashboard');
+
+//Chat
+Route::post('/ajax/chat', 'AjaxController@chat');
+Route::post('/ajax/chatMsg', 'AjaxController@chatMsg');
 
 // Error
 Route::get('/error/auth/{type}', 'ErrorController@auth') -> name('authError');

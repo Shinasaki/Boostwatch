@@ -55,7 +55,7 @@
                 </tr>
             </table>
             <hr class="bg-black"/>
-                <a href="/dashboard" id="button">@lang('payment.dashboard')</a>
+                <a href="/dashboard/rating" id="button">@lang('payment.dashboard')</a>
                 <a href="/history" id="button">@lang('payment.history')</a>
         </div>
     </div>

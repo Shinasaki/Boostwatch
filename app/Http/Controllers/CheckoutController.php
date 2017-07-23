@@ -43,6 +43,7 @@ class CheckoutController extends Controller
         Works::ratingPush([
             'tag' => $tag,
             'server' =>$server,
+            # startRank => $currentRank,
             'currentRank' => $currentRank,
             'newRank' => $newRank,
             'price' => $price,

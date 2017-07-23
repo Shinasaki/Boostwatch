@@ -14,7 +14,7 @@
                     <a style="opacity:0.3" id="<?php echo e((collect(request()->segments())->last() == 'placment' ? 'active' : '')); ?>"><li><?php echo app('translator')->getFromJson('boost.placment'); ?>&nbsp; <i class="fa fa-times" aria-hidden="true" style="color:red;"></i></li></a>
 
 
-                    <a href="leveling" id="<?php echo e((collect(request()->segments())->last() == 'leveling' ? 'active' : '')); ?>"><li><?php echo app('translator')->getFromJson('boost.leveling'); ?></li></a>
+                    <a style="opacity:0.3" id="<?php echo e((collect(request()->segments())->last() == 'leveling' ? 'active' : '')); ?>"><li><?php echo app('translator')->getFromJson('boost.leveling'); ?>&nbsp; <i class="fa fa-times" aria-hidden="true" style="color:red;"></i></li></a>
                 </ul>
             </div>
             <div class="boost-content">
