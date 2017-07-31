@@ -15,4 +15,6 @@ return [
     'jobs' => 'Jobs',
     'profile' => 'Profile',
     'dashboard' => 'Dashboard',
+    'staff' => 'Staff',
+    'admin' => 'Admin',
 ];

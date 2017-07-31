@@ -33,7 +33,8 @@
 .dashboard div#right {
     min-height: 100%;
     width: auto;
-    background: #808080;
+    background-image: url('../image/dashboard/bg.png');
+    background-size: cover;
 }
     .progress {
         background: #1a1a1a
@@ -86,9 +87,15 @@
         }
 
 @media only screen and (max-width: 768px) {
-    .dashboard-rating table td span
+    .dashboard
     {
         font-size: 20px !important;
+    }
+    .dashboard-rating table td {
+        padding: 10px !important;
+    }
+    .dashboard-rating table td span{
+        font-size: 15px !important;
     }
 }
 
@@ -110,6 +117,7 @@
     background: #f2f2f2;
     text-align: center;
     height: 50%;
+    max-height: 500px !important;
     font-size: 20px;
     overflow-y: scroll;
     border-top-left-radius: 5px;
@@ -136,22 +144,38 @@
     }
     .chat-submit input {
         font-family: 'BrandVoic';
-        width: 80%; /* 80% */
+        width: 85%; /* 80% */
         border: none;
-        padding: 20px 5% 20px 5%;
+        padding: 20px 2.5% 20px 2.5%;
         border-bottom-left-radius: 5px;
         outline: none;
-        font-size: 25px;
+        font-size: 28px;
     }
     .chat-submit button {
         font-family: 'BrandVoic';
         width: 10%; /* 20% */
         cursor: pointer;
         border: none;
-        padding: 20px 5% 20px 5%;
+        padding: 20px 0 20px 0;
         border-bottom-right-radius: 5px;
         outline: none;
         color: #f2f2f2;
-        font-size: 25px;
+        font-size: 28px;
         background: orange;
     }
+@media only screen and (max-width: 768px) {
+    .chat-submit input {
+        width: 75% !important;
+        font-size: 20px !important;
+    }
+    .chat-submit button {
+        width: 20% !important;
+        font-size: 20px !important;
+    }
+    .dashboard-rating #mobile {
+        display: block !important;
+    }
+    .dashboard-rating #pc {
+        display: none !important;
+    }
+}

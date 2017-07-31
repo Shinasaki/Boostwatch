@@ -51,16 +51,16 @@ $(window).bind("load", function() {
     divFull();
     getPrice();
     progress_bar();
-    set_height('.dashboard .left, div #right');
     chatMsg();
+    set_height('.dashboard .left, div #right');
 
     // Layout setting when resize.
     $(window).resize(function(){
         imgFit();
         divFull();
         progress_bar();
-        set_height('.dashboard .left, div #right');
         chatMsg();
+        set_height('.dashboard .left, div #right');
     });
     // --/
 

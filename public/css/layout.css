@@ -26,7 +26,7 @@ body{height: 100%;}
 .clear{clear:both;}
 .center{text-align: center !important}
 .container{opacity: 0;}
-hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7px 0;}
+hr{background: #f2f2f2; width: auto; height: 1.5px; border:none; margin: 7px 0 7px 0; border-radius: 5px;}
 
 .font-small{font-size: 20px !important;}
 .font-medium{font-size: 24px !important;}

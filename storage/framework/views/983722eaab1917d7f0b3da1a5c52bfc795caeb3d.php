@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" style="clear:both;">
     <div>
         <ul>
             <!--<li>

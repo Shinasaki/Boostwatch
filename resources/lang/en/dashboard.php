@@ -6,4 +6,7 @@ return [
     'current' => 'current',
     'new' => 'new',
     'boost' => 'Start Boost',
+    'placholder' => 'Your message..',
+    'send' => 'SEND',
+    'contactmsg' => 'Contact Booster',
 ];

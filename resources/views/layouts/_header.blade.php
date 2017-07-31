@@ -22,6 +22,12 @@
             <ul>
             @if (Auth::check())
                 <li><a href="/profile">@lang('header.profile')<i class="fa fa-user-circle"></i></a></li>
+                @if (Auth::user()->permission >= 3)
+                    <li><a href="/admin/dashboard">@lang('header.staff')<i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+                @endif
+                @if (Auth::user()->permission >= 4)
+                    <li><a href="/admin/dashboard">@lang('header.admin')<i class="fa fa-bug" aria-hidden="true"></i></a></li>
+                @endif
                 <li><a href="/logout">@lang('header.logout')<i class="fa fa-sign-out"></i></a></li>
             @else
                 <li><a href="/login">@lang('header.login')<i class="fa fa-sign-in"></i></a></li>
@@ -42,6 +48,12 @@
                 @if (Auth::check())
                     <li><a href="/dashboard/rating">@lang('header.dashboard')<i class="fa fa-tachometer"></i></a></li>
                     <li><a href="/profile">@lang('header.profile')<i class="icon-user"></i></a></li>
+                    @if (Auth::user()->permission >= 3)
+                        <li><a href="/admin/dashboard">@lang('header.staff')<i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+                    @endif
+                    @if (Auth::user()->permission >= 4)
+                        <li><a href="/admin/dashboard">@lang('header.admin')<i class="fa fa-bug" aria-hidden="true"></i></a></li>
+                    @endif
                     <li><a href="/logout">@lang('header.logout')<i class="fa fa-sign-out"></i></a></li>
                 @else
                     <li><a href="/login">@lang('header.login')<i class="fa fa-sign-in"></i></a></li>
