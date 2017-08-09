@@ -20,9 +20,6 @@ Route::get('/logout', function(){
 
 
 // Language
-
-/*get last url {{ collect(request()->segments())->last() }}*/
-
 Route::get('/en', function () {
     //App::setLocale('en');
     Cookie::queue('Locale', 'en', '720');

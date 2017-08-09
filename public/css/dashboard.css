@@ -135,6 +135,7 @@
         }
         .chat-msg td span {
             font-family: 'BrandVoic';
+            word-break: break-all;
         }
         .chat-msg tr:nth-child(even) {
             background: #d9d9d9;
@@ -177,5 +178,8 @@
     }
     .dashboard-rating #pc {
         display: none !important;
+    }
+    .chat-msg {
+        max-height: 250px !important;
     }
 }

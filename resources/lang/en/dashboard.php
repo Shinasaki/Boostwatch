@@ -9,4 +9,5 @@ return [
     'placholder' => 'Your message..',
     'send' => 'SEND',
     'contactmsg' => 'Contact Booster',
+    'nowork' => 'No Service',
 ];

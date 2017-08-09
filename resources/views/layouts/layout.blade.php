@@ -38,7 +38,6 @@
         {{ HTML::script('js/boost.js') }}
         {{ HTML::script('js/dashboard.js') }}
 
-
     </head>
 
     <!-- Body -->

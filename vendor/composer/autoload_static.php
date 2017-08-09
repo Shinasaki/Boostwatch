@@ -329,6 +329,10 @@ class ComposerStaticInit7d73aa493ba9c0cdc7291d43a577c46f
         ),
         'M' => 
         array (
+            'Mpociot\\Firebase' => 
+            array (
+                0 => __DIR__ . '/..' . '/mpociot/laravel-firebase-sync/src',
+            ),
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
@@ -385,6 +389,7 @@ class ComposerStaticInit7d73aa493ba9c0cdc7291d43a577c46f
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\MailTemplate' => __DIR__ . '/../..' . '/app/Mail/MailTemplate.php',
         'App\\Models\\Bill' => __DIR__ . '/../..' . '/app/Models/Bill.php',
+        'App\\Models\\Chat' => __DIR__ . '/../..' . '/app/Models/Chat.php',
         'App\\Models\\Works' => __DIR__ . '/../..' . '/app/Models/Works.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -921,6 +926,10 @@ class ComposerStaticInit7d73aa493ba9c0cdc7291d43a577c46f
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Firebase\\Error' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
+        'Firebase\\FirebaseInterface' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseInterface.php',
+        'Firebase\\FirebaseLib' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseLib.php',
+        'Firebase\\FirebaseStub' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
         'FontLib\\AdobeFontMetrics' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/AdobeFontMetrics.php',
         'FontLib\\Autoloader' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/Autoloader.php',
         'FontLib\\BinaryStream' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/BinaryStream.php',
@@ -1999,6 +2008,7 @@ class ComposerStaticInit7d73aa493ba9c0cdc7291d43a577c46f
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Mpociot\\Firebase\\SyncsWithFirebase' => __DIR__ . '/..' . '/mpociot/laravel-firebase-sync/src/Mpociot/Firebase/SyncsWithFirebase.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',

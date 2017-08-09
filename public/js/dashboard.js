@@ -16,8 +16,13 @@ function progress_bar() {
 
     $('.progress-bar').css('width', width_current);
 
+    msgHeight = $(window).height();
+    msgHeight -= $('.nav li').height();
+    msgHeight -= $('.progress-bar').height();
+    msgHeight -= 200
+    $('.chat-msg').css('height', msgHeight);
+
     $('.dashboard-rating #big-table').css('width', width_max);
-    $('.chat-msg').css('height', ($(window).height() + 65) - $('.nav li').height() - $('.progress-bar').height() - $('.chat-submit').height() - $('#big-table:first-child').height());
 }
 
 

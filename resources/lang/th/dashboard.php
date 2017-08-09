@@ -9,4 +9,5 @@ return [
     'placholder' => 'ข้อความคุณ..',
     'send' => 'ส่ง',
     'contactmsg' => 'ติดต่อผู้รับงาน',
+    'nowork' => 'ไม่มีงาน',
 ];

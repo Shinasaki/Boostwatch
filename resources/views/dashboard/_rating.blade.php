@@ -6,7 +6,14 @@
                 @if(session()->has('progress'))
                     @lang('dashboard.progress'): <span id="percent">{{session('progress')[0]['percent']}}</span>%
                 @else
-                    @lang('dashboard.progress'): 0%
+
+                    @lang('dashboard.nowork')
+                    <style>
+                        .progress-bar {
+                            animation-play-state: paused;
+                            background: #694892;
+                        }
+                    </style>
                 @endif
             </div>
         </div>

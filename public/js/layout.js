@@ -4,8 +4,29 @@ $(window).bind("load", function() {
     // Static
 
         // Autoload.
+
+
+            // loading Page
             setTimeout(function(){ doorOpen() },500);
-            // Chat auto update
+
+
+            // Default
+                imgFit();
+                divFull();
+                getPrice();
+            // Resize
+            $(window).resize(function(){
+                imgFit();
+                divFull();
+            });
+
+
+        // Chat Autoload
+        if (window.location.pathname.indexOf('dashboard') > -1) {
+            chatMsg();
+            set_height('.dashboard .left, div #right');
+            progress_bar();
+
             window.setInterval(function(){
                 var maxScrollTop = $(".chat-msg")[0].scrollHeight - $(".chat-msg").outerHeight();
                 var minScrollTop = $('.chat-msg').scrollTop();
@@ -14,6 +35,14 @@ $(window).bind("load", function() {
                     chatMsg();
                 }
             }, 5000);
+            $(window).resize(function(){
+                chatMsg();
+                set_height('.dashboard .left, div #right');
+                progress_bar();
+            });
+        }
+
+
 
 
         // Animate when change page.
@@ -39,31 +68,12 @@ $(window).bind("load", function() {
             }, 1500);
         });
 
+
         // Dropdown.
         $('.dropdown').hover(function(){
             $(this).children('ul').stop().slideToggle(400);
         })
     // --/
-
-
-    // Layout setting default.
-    imgFit();
-    divFull();
-    getPrice();
-    progress_bar();
-    chatMsg();
-    set_height('.dashboard .left, div #right');
-
-    // Layout setting when resize.
-    $(window).resize(function(){
-        imgFit();
-        divFull();
-        progress_bar();
-        chatMsg();
-        set_height('.dashboard .left, div #right');
-    });
-    // --/
-
 
 
     // Process Price
@@ -81,6 +91,7 @@ $(window).bind("load", function() {
         }
         getPrice();
     });
+
 
     // Get sr by tag
     $('.server').on('change', function(){
@@ -101,8 +112,8 @@ $(window).bind("load", function() {
             getRank('.tag','.server');
         }
     });
-
     // --/
+
 
     $('.bnet_email, .bnet_pass').on('keypress', function() {
         if ($('.bnet_email').val() != "" && $('.bnet_pass').val() != "")
@@ -116,6 +127,7 @@ $(window).bind("load", function() {
             $('.checkout').css("opacity", "0.7");
         }
     });
+
 
     // Level
     $('.newLevel').on("keyup", function(){
@@ -143,6 +155,7 @@ $(window).bind("load", function() {
         }
     });
     // --/
+
 
     // Popup
         $('.popup').click(function(e){
