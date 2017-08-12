@@ -34,6 +34,8 @@
 
         <?php echo e(HTML::style('css/dashboard.css')); ?>
 
+        <?php echo e(HTML::style('css/staff.css')); ?>
+
 
 
         <!-- JS -->

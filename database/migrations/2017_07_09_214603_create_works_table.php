@@ -25,6 +25,7 @@ class CreateWorksTable extends Migration
             $table->integer('price');
             $table->string('currency');
             $table->integer('user_id');
+            $table->integer('receive_id')->nullable();
             $table->string('status');
             $table->timestamps();
         });

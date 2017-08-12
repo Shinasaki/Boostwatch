@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthStaff
 {
@@ -21,7 +22,7 @@ class AuthStaff
             $permission = Auth::user()->permission;
             if ($permission < 3)
             {
-                $url = redirect()->getUrlGenerator()->previous() . "?alert=member";
+                $url = redirect()->getUrlGenerator()->previous() . "?alert=staff";
                 return Redirect::to($url);
             }
         }
