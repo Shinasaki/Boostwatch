@@ -49,6 +49,8 @@
 
         <?php echo e(HTML::script('js/dashboard.js')); ?>
 
+        <?php echo e(HTML::script('js/jquery.cookie.js')); ?>
+
 
 
     </head>

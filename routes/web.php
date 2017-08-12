@@ -31,11 +31,11 @@ Route::get('/th', function () {
 });
 
 
-//Default
+// Default
 Route::get('/', 'IndexController@index')->name('index');
 
 
-//Boost
+// Boost
 Route::get('/boost', 'BoostController@index')->name('boost');
 Route::get('/boost/{page}', 'BoostController@boost');
 Route::post('/ajax/getRank', 'AjaxController@getRank');
@@ -43,7 +43,7 @@ Route::post('/ajax/compileRank', 'AjaxController@compileRank');
 Route::post('/ajax/levelCompile', 'AjaxController@levelCompile');
 
 
-//Checkout
+// Checkout
 Route::post('/checkout/rating', 'CheckoutController@rating') -> name('Checkout_rating');
 Route::get('/checkout', 'CheckoutController@checkout') -> name('Checkout');
 Route::get('/checkout/cancel/{id}', 'CheckoutController@cancel');
@@ -51,12 +51,18 @@ Route::get('/paypal', 'PaypalController@payment') -> name('Paypal');
 Route::get('/paypal/{callback}', 'PaypalController@callback');
 
 
-//Dashboard
+// Dashboard
 Route::get('/dashboard/{page}', 'dashboard\Dashboard@index') -> name('Dashboard');
-
-//Chat
 Route::post('/ajax/chat', 'AjaxController@chat');
 Route::post('/ajax/chatMsg', 'AjaxController@chatMsg');
+Route::post('/ajax/progress_reload', 'AjaxController@progress_reload');
+
+
+// Staff
+Route::get('/staff/{page}', 'staff\StaffController@index') -> name('Staff');
+
+
+
 
 // Error
 Route::get('/error/auth/{type}', 'ErrorController@auth') -> name('authError');

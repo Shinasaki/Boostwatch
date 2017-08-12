@@ -4,8 +4,10 @@ namespace App\Http\Controllers\dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AjaxController;
 use DB;
 use Auth;
+use Cookie;
 
 class Dashboard extends Controller
 {
@@ -14,7 +16,7 @@ class Dashboard extends Controller
         $this->middleware('lang');
         $this->middleware('member');
     }
-    
+
     public function index($page)
     {
         // Check has Boosting
@@ -30,6 +32,7 @@ class Dashboard extends Controller
             $collect = array();
             foreach ($progress as $key => $value) {
                 $collect[$key] = $value;
+
             }
 
             // Progress
@@ -46,8 +49,10 @@ class Dashboard extends Controller
 
             // Push to session
             session()->push('progress', $collect);
-
         }
+
+        // Update Rank
+        //AjaxController::getRank(session('progress')[0]['tag'], session('progress')[0]['server']);
 
 
 
@@ -81,3 +86,4 @@ class Dashboard extends Controller
     }
 
 }
+?>

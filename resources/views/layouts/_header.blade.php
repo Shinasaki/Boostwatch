@@ -23,7 +23,7 @@
             @if (Auth::check())
                 <li><a href="/profile">@lang('header.profile')<i class="fa fa-user-circle"></i></a></li>
                 @if (Auth::user()->permission >= 3)
-                    <li><a href="/admin/dashboard">@lang('header.staff')<i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+                    <li><a href="/staff/dashboard">@lang('header.staff')<i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
                 @endif
                 @if (Auth::user()->permission >= 4)
                     <li><a href="/admin/dashboard">@lang('header.admin')<i class="fa fa-bug" aria-hidden="true"></i></a></li>

@@ -12,7 +12,7 @@ use DB;
 class AjaxController extends Controller
 {
 
-    public function getRank($tag = "", $region = "")
+    public static function getRank($tag = "", $region = "")
     {
         if(isset($_POST['tag']) && isset($_POST['region']))
         {
@@ -292,6 +292,26 @@ class AjaxController extends Controller
                 ->orderBy('created_at')
                 ->get();
             return array($Chat, Auth::id());
+        }
+    }
+
+
+
+
+
+    // Dashboard
+    // - Reload
+    public function progress_reload() {
+        if(session()->has('progress'))
+        {
+            $tag = session('progress')[0]['tag'];
+            $region = session('progress')[0]['server'];
+            $currentRank = $this->getRank($tag, $region);
+            DB::table('rating_works')
+                -> where('tag', $tag)
+                -> update(['currentRank' => $currentRank]);
+        } else {
+            return false;
         }
     }
 }

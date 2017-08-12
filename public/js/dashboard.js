@@ -94,3 +94,32 @@ function chatMsg() {
         });
         $(".chat-msg").animate({ scrollTop: $('.chat-msg')[0].scrollHeight }, 0);
     }
+
+    function progress_reload() {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+            url: '/ajax/progress_reload',
+            type: 'POST',
+            timeout: '7000',
+            success: prSuccess,
+            error: prError,
+            beforeSend: prSend,
+            complete: prComplete,
+        });
+    }
+        function prSend() {
+            $('#progress_reload').addClass('fa-spin');
+        }
+        function prComplete() {
+            $('#progress_reload').removeClass('fa-spin ');
+        }
+        function prSuccess(result) {
+            location.reload();
+        }
+        function prError() {
+            alert('Connection Timeout');
+        }

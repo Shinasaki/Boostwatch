@@ -37,6 +37,8 @@
         {{ HTML::script('js/layout.js') }}
         {{ HTML::script('js/boost.js') }}
         {{ HTML::script('js/dashboard.js') }}
+        {{ HTML::script('js/jquery.cookie.js') }}
+
 
     </head>
 

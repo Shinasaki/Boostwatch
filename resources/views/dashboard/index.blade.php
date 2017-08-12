@@ -5,7 +5,7 @@
         <div class="left">
             <div class="dashboard-profile">
                 @if (session()->has('progress'))
-                    <span class="face-brandvoic">{{session('progress')[0]['tag']}}</span>
+                    <span class="face-brandvoic" id="dashboard_tag">{{session('progress')[0]['tag']}}</span>
                 @else
                     <a href="/boost/rating" class="color-white"><span>@lang('dashboard.boost')</span></a>
                 @endif

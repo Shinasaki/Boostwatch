@@ -24,7 +24,7 @@
             <?php if(Auth::check()): ?>
                 <li><a href="/profile"><?php echo app('translator')->getFromJson('header.profile'); ?><i class="fa fa-user-circle"></i></a></li>
                 <?php if(Auth::user()->permission >= 3): ?>
-                    <li><a href="/admin/dashboard"><?php echo app('translator')->getFromJson('header.staff'); ?><i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+                    <li><a href="/staff/dashboard"><?php echo app('translator')->getFromJson('header.staff'); ?><i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
                 <?php endif; ?>
                 <?php if(Auth::user()->permission >= 4): ?>
                     <li><a href="/admin/dashboard"><?php echo app('translator')->getFromJson('header.admin'); ?><i class="fa fa-bug" aria-hidden="true"></i></a></li>

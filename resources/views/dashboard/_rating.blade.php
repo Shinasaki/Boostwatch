@@ -4,9 +4,13 @@
         <div class="progress-bar">
             <div>
                 @if(session()->has('progress'))
-                    @lang('dashboard.progress'): <span id="percent">{{session('progress')[0]['percent']}}</span>%
-                @else
 
+                    <!-- Reload Rank -->
+                    <!--<i class="fa fa-refresh fa-spin fa-fw"></i>-->
+                    <i id="progress_reload" class="fa fa-refresh" onclick="progress_reload()" style="cursor:pointer"></i>
+                    @lang('dashboard.progress'): <span id="percent">{{session('progress')[0]['percent']}}</span>%
+
+                @else
                     @lang('dashboard.nowork')
                     <style>
                         .progress-bar {
