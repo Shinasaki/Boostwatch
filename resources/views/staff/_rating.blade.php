@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    @include('dashboard._chat')
+                    @include('staff._works')
                 </td>
             </tr>
         </table>

@@ -40,6 +40,24 @@ class StaffController extends Controller
 
 
 
+        // Get Works Data
+        $works_list = DB::table('rating_works')
+            ->select('id', 'tag', 'server', 'startRank', 'newRank', 'price')
+            ->where('status', '=', 'active')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Works found.
+        if ($works_list) {
+            $collect_works = array();
+            foreach ($works_list as $key => $value) {
+                $collect_works[$key] = $value;
+            }
+        }
+
+
+
+
 
 
 
@@ -48,7 +66,7 @@ class StaffController extends Controller
 
         switch ($page) {
             case 'dashboard':
-                return view('staff._rating', compact('page'));
+                return view('staff._rating', compact('page'))->with(['collect_works'=>$collect_works]);
             break;
 
             default:

@@ -14,8 +14,36 @@
     .staff-sidebar li:first-child {
         padding: 20px;
         background: orange;
-        
+
     }
     .staff-sidebar li:not(:first-child) {
         padding: 10px 20px 10px 20px;
+    }
+
+
+
+/* Works */
+.staff-works {
+    background: #f2f2f2;
+    text-align: center;
+    height: 50%;
+    max-height: 500px !important;
+    font-size: 20px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+    .staff-works table {
+        width: 100%;
+    }
+    .staff-works table tr:nth-child(odd) {
+        background: #d9d9d9;
+    }
+    .staff-works table input[type=submit] {
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: orange; color: #f2f2f2;
+        cursor: pointer;
+
     }

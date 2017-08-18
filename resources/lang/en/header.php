@@ -1,7 +1,6 @@
 <?php
 //EN
 return [
-
     'home' => 'Home',
     'why' => 'Why Us?',
     'reviews' => 'Review',

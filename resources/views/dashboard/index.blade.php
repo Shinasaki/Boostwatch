@@ -13,25 +13,25 @@
             <div class="dashboard-menu">
                 <ul>
                     <a href="/dashboard/rating">
-                        <li id="{{ (collect(request()->segments())->last() == 'rating' ? 'active' : '') }}">Rating</li>
+                        <li id="{{ (collect(request()->segments())->last() == 'rating' ? 'active' : '') }}">@lang('boost.rating')</li>
                     </a>
                     <!--ปิด-->
                     <a>
                         <li id="{{ (collect(request()->segments())->last() == 'duo' ? 'active' : '') }}" style="opacity:0.3">
-                            Duo
+                            @lang('boost.duo')
                             <i class="fa fa-times" aria-hidden="true" style="color:red;"></i>
                         </li>
                     </a>
                     <!--ปิด-->
                     <a>
                         <li id="{{ (collect(request()->segments())->last() == 'placment' ? 'active' : '') }}" style="opacity:0.3">
-                            Placment
+                            @lang('boost.placement')
                             <i class="fa fa-times" aria-hidden="true" style="color:red;"></i>
                         </li>
                     </a>
                     <a>
                         <li id="{{ (collect(request()->segments())->last() == 'leveling' ? 'active' : '') }}" style="opacity:0.3">
-                            Leveling
+                            @lang('boost.leveling')
                             <i class="fa fa-times" aria-hidden="true" style="color:red;"></i>
                         </li>
                     </a>

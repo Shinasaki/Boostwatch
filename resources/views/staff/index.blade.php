@@ -4,7 +4,7 @@
     <div class="dashboard divFull">
         <div class="left">
             <div class="dashboard-profile">
-                <span class="face-brandvoic" id="dashboard_tag">{{session('progress')[0]['tag']}}</span>
+                <span class="face-brandvoic" id="dashboard_tag">{{Auth::user()->name}} {{Auth::user()->surname}}</span>
             </div>
             <div class="dashboard-menu">
                 <ul>

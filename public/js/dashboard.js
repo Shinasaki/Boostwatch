@@ -20,7 +20,7 @@ function progress_bar() {
     msgHeight -= $('.nav li').height();
     msgHeight -= $('.progress-bar').height();
     msgHeight -= 200
-    $('.chat-msg').css('height', msgHeight);
+    $('.chat-msg, .works-list').css('height', msgHeight);
 
     $('.dashboard-rating #big-table').css('width', width_max);
 }

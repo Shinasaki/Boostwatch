@@ -2,18 +2,18 @@
 //Boost TH
 return [
 
-    'rating' => 'Rating',
-    'duo' => 'Duo',
-    'placment' => 'placment',
+    'rating' => 'Rating Boost',
+    'duo' => 'Duo Queue',
+    'placment' => 'Placement Match',
     'leveling' => 'Leveling',
-    'current' => 'แร๊งปัจุบัน',
-    'new' => 'แร๊งใหม่',
+    'current' => 'แรงค์ปัจุบัน',
+    'new' => 'แรงค์ที่ต้องการ',
     'server' => 'เซิฟเวอร์',
     'tag' => 'แท็ก',
     'price' => 'ราคา',
-    'pay' => 'จ่ายเงิน',
-    'bnet_email' => 'Blizzard อีเมล ',
-    'bnet_pass' => 'Blizzard รหัสผ่าน ',
+    'pay' => 'ยอดชำระทั้งหมด',
+    'bnet_email' => 'อีเมลของไอดี Overwatch',
+    'bnet_pass' => 'รหัสผ่านของไอดี Overwatch ',
 
     'level' => 'เลเวลใหม่',
 
