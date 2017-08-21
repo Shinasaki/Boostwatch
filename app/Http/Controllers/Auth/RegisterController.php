@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard/rating';
 
     /**
      * Create a new controller instance.
@@ -71,8 +71,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'password' => Hash::make($data['password']),
-            'permission' => '2',
-            'money' => '0',
+            'permission' => 2,
+            'money' => 0,
+            'receive' => 0,
         ]);
     }
 

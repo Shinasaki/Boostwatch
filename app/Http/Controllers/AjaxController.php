@@ -57,206 +57,62 @@ class AjaxController extends Controller
         }
     }
 
-    public function compileRank($currentRank = 0, $newRank = 0)
+    public function compileRank($currentSR= 0, $newSR = 0)
     {
-        if($currentRank == 0 || $newRank == 0)
+        if($currentSR == 0 || $newSR == 0)
         {
-            $currentRank = $_POST['currentRank'];
-            $newRank = $_POST['newRank'];
+            $currentSR = $_POST['currentRank'];
+            $newSR = $_POST['newRank'];
         }
 
-        $priceBronze = 1;
-        $priceSilver = 1;
-        $priceGold = 1.3;
-        $pricePlatinum = 2;
-        $priceDiamond = 3;
-        $priceMaster = 5;
-        $priceGrand = 10;
+        /*                v Start Bronze Here */
+        $rating = array(1,1,1,1,1,1.5,2.5,7,27,37);
+        $price = 0;
 
-        $currentRank = $currentRank;
-        $newRank = $newRank;
-        $price = $newRank - $currentRank;
-        //Bronze
-        if ($currentRank <= 1499)
-        {
-            if ($newRank <= 1499)
-            {
-                //to Bronze
-                $price = $price * $priceBronze;
-            }
-            else if ($newRank <= 1999)
-            {
-                //to Silver
-                $price = $price * $priceSilver;
-            }
-            else if ($newRank <= 2499)
-            {
-                //to Gold
-                $price = $price * $priceGold;
-            }
-            else if ($newRank <= 2999)
-            {
-                //to Platinum
-                $price = $price * $pricePlatinum;
-            }
-            else if ($newRank <= 3499)
-            {
-                //to Diamond
-                $price = $price * $priceDiamond;
-            }
-            else if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
+        /*
+            0000 - 1499 Bronze 1
+            1500 - 1999 Silver 1
+            2000 - 2499 Gold 1
+            2500 - 2999 Platinum 1.5
+            3000 - 3499 Diamond 2.5
+            3500 - 3999 Master 7
+            4000 + 5000 GrandMaster 27
+        */
+
+
+        /* Current Rank */
+        $currentSplit = floor($currentSR / 500);
+        $currentFraction = $currentSR - ($currentSplit * 500);
+
+
+        /* New Rank */
+        $newSplit = floor($newSR / 500);
+        $newFraction = $newSR - ($newSplit * 500);
+
+
+        # Start Fraction
+        if ($newSR - $currentSR < 500) {
+            $price += $currentFraction * $rating[$currentSplit];
+        } else {
+            $price += (500 - $currentFraction) * $rating[$currentSplit];
         }
 
-        //Silver
-        else if ($currentRank <= 1999)
-        {
-            if ($newRank <= 1999)
-            {
-                //to Silver
-                $price = $price * $priceSilver;
-            }
-            else if ($newRank <= 2499)
-            {
-                //to Gold
-                $price = $price * $priceGold;
-            }
-            else if ($newRank <= 2999)
-            {
-                //to Platinum
-                $price = $price * $pricePlatinum;
-            }
-            else if ($newRank <= 3499)
-            {
-                //to Diamond
-                $price = $price * $priceDiamond;
-            }
-            else if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
+
+        # Loop Split
+        for ($i=$currentSplit+1; $i < $newSplit; $i++) {
+
+            $currentFraction = 500;
+            $price += $rating[$i] * $currentFraction;
         }
 
-        //Gold
-        else if ($currentRank <= 2499)
-        {
-            if ($newRank <= 2499)
-            {
-                //to Gold
-                $price = $price * $priceGold;
-            }
-            else if ($newRank <= 2999)
-            {
-                //to Platinum
-                $price = $price * $pricePlatinum;
-            }
-            else if ($newRank <= 3499)
-            {
-                //to Diamond
-                $price = $price * $priceDiamond;
-            }
-            else if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
-        }
 
-        //Platinum
-        else if ($currentRank <= 2999)
-        {
-            if ($newRank <= 2999)
-            {
-                //to Platinum
-                $price = $price * $pricePlatinum;
-            }
-            else if ($newRank <= 3499)
-            {
-                //to Diamond
-                $price = $price * $priceDiamond;
-            }
-            else if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
-        }
-
-        //Diamond
-        else if ($currentRank <= 3499)
-        {
-            if ($newRank <= 3499)
-            {
-                //to Diamond
-                $price = $price * $priceDiamond;
-            }
-            else if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
-        }
-
-        //Master
-        else if ($currentRank <= 3999)
-        {
-            if ($newRank <= 3999)
-            {
-                //to Master
-                $price = $price * $priceMaster;
-            }
-            else if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
-        }
-
-        //Grand
-        else if ($currentRank >= 4000)
-        {
-            if ($newRank >= 4000)
-            {
-                //to Grand
-                $price = $price * $priceGrand;
-            }
-        }
-
-        if(Cookie::get('Locale') == "en")
-        {
-            $price = $price / 32.5;
-        }
-        return round($price);
+        # Last Fraction
+        $price += $rating[$i] * $newFraction;
+        return $price;
     }
+
+
+
 
     public function levelCompile()
     {

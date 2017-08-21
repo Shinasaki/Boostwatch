@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('permission');
             $table->integer('money');
+            $table->integer('receive');
             $table->string('remember_token')->nullable();
             $table->timestamps();
         });
