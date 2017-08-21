@@ -4,7 +4,7 @@ return [
 
     'rating' => 'Rating',
     'duo' => 'Duo',
-    'placment' => 'Placment',
+    'placement' => 'Placement',
     'leveling' => 'Leveling',
     'current' => 'Current Rank',
     'new' => 'New Rank',

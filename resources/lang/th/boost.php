@@ -2,9 +2,9 @@
 //Boost TH
 return [
 
-    'rating' => 'Rating Boost',
-    'duo' => 'Duo Queue',
-    'placment' => 'Placement Match',
+    'rating' => 'Rating',
+    'duo' => 'Duo',
+    'placement' => 'Placement',
     'leveling' => 'Leveling',
     'current' => 'แรงค์ปัจุบัน',
     'new' => 'แรงค์ที่ต้องการ',
