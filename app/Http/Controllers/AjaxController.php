@@ -91,11 +91,12 @@ class AjaxController extends Controller
 
 
         # Start Fraction
-        if ($newSR - $currentSR < 500) {
-            $price += $currentFraction * $rating[$currentSplit];
-        } else {
-            $price += (500 - $currentFraction) * $rating[$currentSplit];
+        if ($newSR - $currentSR >= 500) {
+            $currentFraction = 500;
+            $price += $rating[$currentSplit] * $currentFraction;
+            //echo $rating[$currentSplit] * $currentFraction . "[$rating[$currentSplit]] + ";
         }
+
 
 
         # Loop Split
